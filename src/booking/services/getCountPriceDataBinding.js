@@ -3,11 +3,11 @@ import tokenManager from "@/commons/utils/token";
 import environment from "@/commons/utils/environment";
 import { notifyError } from "@/commons/utils/toaster";
 
-const getDataBinding = (params = {}) => {
+const getCountPriceDataBinding = (params = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	let paramsGet = Object.assign(params, {token});
-	return axios.get(`${environment.rootApi}/call/cartitem/list`, {
+	return axios.get(`${environment.rootApi}/call/hotel/total`, {
 		params: paramsGet,		
 		headers: {
 			'Authorization': token,
@@ -18,4 +18,4 @@ const getDataBinding = (params = {}) => {
 	})
 } 
 
-export default getDataBinding
+export default getCountPriceDataBinding

@@ -27,7 +27,7 @@ const CompletedFlightCard = ({ listCompletedFlightOrderDataBinding,
             id: "flightTo",
             condition: "",
             label: "Flight To",
-  		  featureName: "arrivalLocation",
+  		  featureName: "bookingOptionBookingItemArrivalLocation",
             editable:  false 
           }
   ,
@@ -35,7 +35,7 @@ const CompletedFlightCard = ({ listCompletedFlightOrderDataBinding,
             id: "departureDate",
             condition: "",
             label: "Departure Date",
-  		  featureName: "departureTime",
+  		  featureName: "bookingOptionBookingItemDepartureTime",
             editable:  false 
           }
   ]}
