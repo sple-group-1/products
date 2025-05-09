@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React, { useContext } from 'react';
 import { useNavigate, Link } from "react-router";
@@ -30,9 +30,9 @@ const DetailHotelOrder = ({ data }) => {
         }
         ,
         {
-          id: "title",
+          id: "hotelName",
           condition: "",
-          label: "Title",
+          label: "Hotel Name",
           featureName: "title",
         }
         ,

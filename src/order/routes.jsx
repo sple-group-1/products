@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React from 'react';
 import OrderPage from './containers/OrderPage'
@@ -18,21 +18,21 @@ const orderRoutes = [
 	
 ,
 { 
-	path: "/order/hotel/:id",
+	path: "/order/hotel/:orderId",
 	element: <DetailHotelOrderPage />,
 }
 
 	
 ,
 { 
-	path: "/order/flight/:id",
+	path: "/order/flight/:orderId",
 	element: <DetailFlightOrderPage />,
 }
 
 	
 ,
 { 
-	path: "/order/event/:id",
+	path: "/order/event/:orderId",
 	element: <DetailEventOrderPage />,
 }
 

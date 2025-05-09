@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React, { useEffect, useState, useContext} from 'react'
 import { Button, Spinner } from "@/commons/components"
@@ -11,76 +11,70 @@ import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useNavigate } from "react-router";
 import { useAuth } from '@/commons/auth';
-import HotelCard from "../components/HotelCard";
+import UpcomingHotelCard from "../components/UpcomingHotelCard";
 
-import getListHotelDataBinding from '../services/getListHotelDataBinding'
-import FlightCard from "../components/FlightCard";
+import getListUpcomingHotelOrderDataBinding from '../services/getListUpcomingHotelOrderDataBinding'
+import UpcomingFlightCard from "../components/UpcomingFlightCard";
 
-import getListFlightDataBinding from '../services/getListFlightDataBinding'
-import EventCard from "../components/EventCard";
+import getListUpcomingFlightOrderDataBinding from '../services/getListUpcomingFlightOrderDataBinding'
+import UpcomingEventCard from "../components/UpcomingEventCard";
 
-import getListEventDataBinding from '../services/getListEventDataBinding'
+import getListUpcomingEventOrderDataBinding from '../services/getListUpcomingEventOrderDataBinding'
 const UpcomingOrders = props => {
 const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
-	listRowHotelOrder: false,
-	listRowFlightOrder: false,
-	listRowEventOrder: false,
+	listRowUpcomingHotel: false,
+	listRowUpcomingFlight: false,
+	listRowUpcomingEvent: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
 
-const [listHotelDataBinding, setListHotelDataBinding] = useState()
+const [listUpcomingHotelOrderDataBinding, setListUpcomingHotelOrderDataBinding] = useState()
 	
 	
 	
-	useEffect(() => {
-		
-
+useEffect(() => {
 		const fetchData = async () => {
 			try {
-				setIsLoading(prev => ({...prev, listRowHotelOrder: true}))
-				const { data: listHotelDataBinding } = await getListHotelDataBinding()
-				setListHotelDataBinding(listHotelDataBinding.data)
+				setIsLoading(prev => ({...prev, listRowUpcomingHotel: true}))
+				const { data: listUpcomingHotelOrderDataBinding } = await getListUpcomingHotelOrderDataBinding()
+				setListUpcomingHotelOrderDataBinding(listUpcomingHotelOrderDataBinding.data)
 			} finally {
-				setIsLoading(prev => ({...prev, listRowHotelOrder: false}))
+				setIsLoading(prev => ({...prev, listRowUpcomingHotel: false}))
 			}
 		}
 		fetchData()
   	}, [])
-const [listFlightDataBinding, setListFlightDataBinding] = useState()
+const [listUpcomingFlightOrderDataBinding, setListUpcomingFlightOrderDataBinding] = useState()
 	
 	
 	
-	useEffect(() => {
-		
-
+useEffect(() => {
 		const fetchData = async () => {
 			try {
-				setIsLoading(prev => ({...prev, listRowFlightOrder: true}))
-				const { data: listFlightDataBinding } = await getListFlightDataBinding()
-				setListFlightDataBinding(listFlightDataBinding.data)
+				setIsLoading(prev => ({...prev, listRowUpcomingFlight: true}))
+				const { data: listUpcomingFlightOrderDataBinding } = await getListUpcomingFlightOrderDataBinding()
+				setListUpcomingFlightOrderDataBinding(listUpcomingFlightOrderDataBinding.data)
 			} finally {
-				setIsLoading(prev => ({...prev, listRowFlightOrder: false}))
+				setIsLoading(prev => ({...prev, listRowUpcomingFlight: false}))
 			}
 		}
 		fetchData()
   	}, [])
-const [listEventDataBinding, setListEventDataBinding] = useState()
+const [listUpcomingEventOrderDataBinding, setListUpcomingEventOrderDataBinding] = useState()
 	
 	
 	
-	useEffect(() => {
-		
-
+useEffect(() => {
 		const fetchData = async () => {
 			try {
-				setIsLoading(prev => ({...prev, listRowEventOrder: true}))
-				const { data: listEventDataBinding } = await getListEventDataBinding()
-				setListEventDataBinding(listEventDataBinding.data)
+				setIsLoading(prev => ({...prev, listRowUpcomingEvent: true}))
+				const { data: listUpcomingEventOrderDataBinding } = await getListUpcomingEventOrderDataBinding()
+				setListUpcomingEventOrderDataBinding(listUpcomingEventOrderDataBinding.data)
 			} finally {
-				setIsLoading(prev => ({...prev, listRowEventOrder: false}))
+				setIsLoading(prev => ({...prev, listRowUpcomingEvent: false}))
 			}
 		}
 		fetchData()
@@ -99,35 +93,35 @@ return (
 		}
 	>
 <Layouts.ListContainerCardLayout
-	title={"ListRow Hotel Order"}
-	singularName={"Hotel"}
-	items={[listHotelDataBinding]}
-	isLoading={isLoading.listRowHotelOrder}
+	title={"ListRow UpcomingHotel"}
+	singularName={"UpcomingHotel"}
+	items={[listUpcomingHotelOrderDataBinding]}
+	isLoading={isLoading.listRowUpcomingHotel}
 >
-	<HotelCard
-		listHotelDataBinding={listHotelDataBinding}
+	<UpcomingHotelCard
+		listUpcomingHotelOrderDataBinding={listUpcomingHotelOrderDataBinding}
 		
   	/>
 </Layouts.ListContainerCardLayout>
 <Layouts.ListContainerCardLayout
-	title={"ListRow Flight Order"}
-	singularName={"Flight"}
-	items={[listFlightDataBinding]}
-	isLoading={isLoading.listRowFlightOrder}
+	title={"ListRow UpcomingFlight"}
+	singularName={"UpcomingFlight"}
+	items={[listUpcomingFlightOrderDataBinding]}
+	isLoading={isLoading.listRowUpcomingFlight}
 >
-	<FlightCard
-		listFlightDataBinding={listFlightDataBinding}
+	<UpcomingFlightCard
+		listUpcomingFlightOrderDataBinding={listUpcomingFlightOrderDataBinding}
 		
   	/>
 </Layouts.ListContainerCardLayout>
 <Layouts.ListContainerCardLayout
-	title={"ListRow Event Order"}
-	singularName={"Event"}
-	items={[listEventDataBinding]}
-	isLoading={isLoading.listRowEventOrder}
+	title={"ListRow UpcomingEvent"}
+	singularName={"UpcomingEvent"}
+	items={[listUpcomingEventOrderDataBinding]}
+	isLoading={isLoading.listRowUpcomingEvent}
 >
-	<EventCard
-		listEventDataBinding={listEventDataBinding}
+	<UpcomingEventCard
+		listUpcomingEventOrderDataBinding={listUpcomingEventOrderDataBinding}
 		
   	/>
 </Layouts.ListContainerCardLayout>

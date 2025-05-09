@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React, { useEffect, useState, useContext} from 'react'
 import { Button, Spinner } from "@/commons/components"
@@ -13,7 +13,7 @@ import { HeaderContext } from "@/commons/components"
 import DetailEventOrder from '../components/DetailEventOrder'
 import getDetailEventOrderDataBinding from '../services/getDetailEventOrderDataBinding'
 const DetailEventOrderPage = props => {
-const { id } = useParams()
+const { orderId } = useParams()
 
 	const [isLoading, setIsLoading] = useState({
 	detailEventOrder: false,
@@ -26,7 +26,7 @@ useEffect(() => {
 	const fetchData = async () => {
 		try {
 			setIsLoading(prev => ({...prev, detailEventOrder: true}))
-			const { data: detailEventOrderDataBinding } = await getDetailEventOrderDataBinding({ id })
+			const { data: detailEventOrderDataBinding } = await getDetailEventOrderDataBinding({ orderId })
 			setDetailEventOrderDataBinding(detailEventOrderDataBinding.data)
 		} finally {
 			setIsLoading(prev => ({...prev, detailEventOrder: false}))

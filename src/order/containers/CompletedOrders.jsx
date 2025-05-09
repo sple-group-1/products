@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React, { useEffect, useState, useContext} from 'react'
 import { Button, Spinner } from "@/commons/components"
@@ -11,76 +11,70 @@ import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useNavigate } from "react-router";
 import { useAuth } from '@/commons/auth';
-import HotelCard from "../components/HotelCard";
+import CompletedHotelCard from "../components/CompletedHotelCard";
 
-import getListHotelDataBinding from '../services/getListHotelDataBinding'
-import FlightCard from "../components/FlightCard";
+import getListCompletedHotelOrderDataBinding from '../services/getListCompletedHotelOrderDataBinding'
+import CompletedFlightCard from "../components/CompletedFlightCard";
 
-import getListFlightDataBinding from '../services/getListFlightDataBinding'
-import EventCard from "../components/EventCard";
+import getListCompletedFlightOrderDataBinding from '../services/getListCompletedFlightOrderDataBinding'
+import CompletedEventCard from "../components/CompletedEventCard";
 
-import getListEventDataBinding from '../services/getListEventDataBinding'
+import getListCompletedEventOrderDataBinding from '../services/getListCompletedEventOrderDataBinding'
 const CompletedOrders = props => {
 const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
-	listRowHotelOrder: false,
-	listRowFlightOrder: false,
-	listRowEventOrder: false,
+	listRowCompletedHotel: false,
+	listRowCompletedFlight: false,
+	listRowCompletedEvent: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
 
-const [listHotelDataBinding, setListHotelDataBinding] = useState()
+const [listCompletedHotelOrderDataBinding, setListCompletedHotelOrderDataBinding] = useState()
 	
 	
 	
-	useEffect(() => {
-		
-
+useEffect(() => {
 		const fetchData = async () => {
 			try {
-				setIsLoading(prev => ({...prev, listRowHotelOrder: true}))
-				const { data: listHotelDataBinding } = await getListHotelDataBinding()
-				setListHotelDataBinding(listHotelDataBinding.data)
+				setIsLoading(prev => ({...prev, listRowCompletedHotel: true}))
+				const { data: listCompletedHotelOrderDataBinding } = await getListCompletedHotelOrderDataBinding()
+				setListCompletedHotelOrderDataBinding(listCompletedHotelOrderDataBinding.data)
 			} finally {
-				setIsLoading(prev => ({...prev, listRowHotelOrder: false}))
+				setIsLoading(prev => ({...prev, listRowCompletedHotel: false}))
 			}
 		}
 		fetchData()
   	}, [])
-const [listFlightDataBinding, setListFlightDataBinding] = useState()
+const [listCompletedFlightOrderDataBinding, setListCompletedFlightOrderDataBinding] = useState()
 	
 	
 	
-	useEffect(() => {
-		
-
+useEffect(() => {
 		const fetchData = async () => {
 			try {
-				setIsLoading(prev => ({...prev, listRowFlightOrder: true}))
-				const { data: listFlightDataBinding } = await getListFlightDataBinding()
-				setListFlightDataBinding(listFlightDataBinding.data)
+				setIsLoading(prev => ({...prev, listRowCompletedFlight: true}))
+				const { data: listCompletedFlightOrderDataBinding } = await getListCompletedFlightOrderDataBinding()
+				setListCompletedFlightOrderDataBinding(listCompletedFlightOrderDataBinding.data)
 			} finally {
-				setIsLoading(prev => ({...prev, listRowFlightOrder: false}))
+				setIsLoading(prev => ({...prev, listRowCompletedFlight: false}))
 			}
 		}
 		fetchData()
   	}, [])
-const [listEventDataBinding, setListEventDataBinding] = useState()
+const [listCompletedEventOrderDataBinding, setListCompletedEventOrderDataBinding] = useState()
 	
 	
 	
-	useEffect(() => {
-		
-
+useEffect(() => {
 		const fetchData = async () => {
 			try {
-				setIsLoading(prev => ({...prev, listRowEventOrder: true}))
-				const { data: listEventDataBinding } = await getListEventDataBinding()
-				setListEventDataBinding(listEventDataBinding.data)
+				setIsLoading(prev => ({...prev, listRowCompletedEvent: true}))
+				const { data: listCompletedEventOrderDataBinding } = await getListCompletedEventOrderDataBinding()
+				setListCompletedEventOrderDataBinding(listCompletedEventOrderDataBinding.data)
 			} finally {
-				setIsLoading(prev => ({...prev, listRowEventOrder: false}))
+				setIsLoading(prev => ({...prev, listRowCompletedEvent: false}))
 			}
 		}
 		fetchData()
@@ -99,35 +93,35 @@ return (
 		}
 	>
 <Layouts.ListContainerCardLayout
-	title={"ListRow Hotel Order"}
-	singularName={"Hotel"}
-	items={[listHotelDataBinding]}
-	isLoading={isLoading.listRowHotelOrder}
+	title={"ListRow CompletedHotel"}
+	singularName={"CompletedHotel"}
+	items={[listCompletedHotelOrderDataBinding]}
+	isLoading={isLoading.listRowCompletedHotel}
 >
-	<HotelCard
-		listHotelDataBinding={listHotelDataBinding}
+	<CompletedHotelCard
+		listCompletedHotelOrderDataBinding={listCompletedHotelOrderDataBinding}
 		
   	/>
 </Layouts.ListContainerCardLayout>
 <Layouts.ListContainerCardLayout
-	title={"ListRow Flight Order"}
-	singularName={"Flight"}
-	items={[listFlightDataBinding]}
-	isLoading={isLoading.listRowFlightOrder}
+	title={"ListRow CompletedFlight"}
+	singularName={"CompletedFlight"}
+	items={[listCompletedFlightOrderDataBinding]}
+	isLoading={isLoading.listRowCompletedFlight}
 >
-	<FlightCard
-		listFlightDataBinding={listFlightDataBinding}
+	<CompletedFlightCard
+		listCompletedFlightOrderDataBinding={listCompletedFlightOrderDataBinding}
 		
   	/>
 </Layouts.ListContainerCardLayout>
 <Layouts.ListContainerCardLayout
-	title={"ListRow Event Order"}
-	singularName={"Event"}
-	items={[listEventDataBinding]}
-	isLoading={isLoading.listRowEventOrder}
+	title={"ListRow CompletedEvent"}
+	singularName={"CompletedEvent"}
+	items={[listCompletedEventOrderDataBinding]}
+	isLoading={isLoading.listRowCompletedEvent}
 >
-	<EventCard
-		listEventDataBinding={listEventDataBinding}
+	<CompletedEventCard
+		listCompletedEventOrderDataBinding={listCompletedEventOrderDataBinding}
 		
   	/>
 </Layouts.ListContainerCardLayout>

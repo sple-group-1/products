@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React from 'react'
 import { Link } from "react-router";
@@ -12,7 +12,7 @@ import { Button } from '@/commons/components';
 
 import * as Layouts from "@/commons/layouts";
 
-const FlightCard = ({ listFlightDataBinding,
+const UpcomingHotelCard = ({ listUpcomingHotelOrderDataBinding,
 		 
 
 	}) => {
@@ -20,28 +20,27 @@ const FlightCard = ({ listFlightDataBinding,
   
   return (
     <Layouts.ListComponentCardLayout
-      items={[listFlightDataBinding]}
+      items={[listUpcomingHotelOrderDataBinding]}
   	isRow
   	itemsAttrs={[
           {
-            id: "flightTo",
+            id: "hotelName",
             condition: "",
-            label: "Flight To",
-  		  featureName: "arrivalLocation",
-            editable: false
+            label: "Hotel Name",
+  		  featureName: "title",
+            editable:  false 
           }
   ,
           {
-            id: "departureDate",
+            id: "check-InDate",
             condition: "",
-            label: "Departure Date",
-  		  featureName: "departureTime",
-            editable: false
+            label: "Check-In Date",
+  		  featureName: "createdAt",
+            editable:  false 
           }
   ]}
-      itemsEvents={(flightItem) => [
-        
-        <Link to={`/order/flight/${id}`}>
+      itemsEvents={(upcomingHotelItem) => [
+        <Link to={`/order/hotel/${upcomingHotelItem.orderId}`}>
           <Button
             size="sm"
             variant=
@@ -57,4 +56,4 @@ const FlightCard = ({ listFlightDataBinding,
   )	
 };
 
-export default FlightCard;
+export default UpcomingHotelCard;

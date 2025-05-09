@@ -3,11 +3,11 @@ import tokenManager from "@/commons/utils/token";
 import environment from "@/commons/utils/environment";
 import { notifyError } from "@/commons/utils/toaster";
 
-const getListEventDataBinding = (params = {}) => {
+const getListCompletedEventOrderDataBinding = (params = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	let paramsGet = Object.assign(params, {token});
-	return axios.get(`${environment.rootApi}/call/order`, {
+	return axios.get(`${environment.rootApi}/call/order/completed?type=event`, {
 		params: paramsGet,		
 		headers: {
 			'Authorization': token,
@@ -18,4 +18,4 @@ const getListEventDataBinding = (params = {}) => {
 	})
 } 
 
-export default getListEventDataBinding
+export default getListCompletedEventOrderDataBinding

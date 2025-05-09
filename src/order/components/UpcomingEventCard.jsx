@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React from 'react'
 import { Link } from "react-router";
@@ -12,7 +12,7 @@ import { Button } from '@/commons/components';
 
 import * as Layouts from "@/commons/layouts";
 
-const EventCard = ({ listEventDataBinding,
+const UpcomingEventCard = ({ listUpcomingEventOrderDataBinding,
 		 
 
 	}) => {
@@ -20,15 +20,15 @@ const EventCard = ({ listEventDataBinding,
   
   return (
     <Layouts.ListComponentCardLayout
-      items={[listEventDataBinding]}
+      items={[listUpcomingEventOrderDataBinding]}
   	isRow
   	itemsAttrs={[
           {
-            id: "title",
+            id: "eventName",
             condition: "",
-            label: "Title",
+            label: "Event Name",
   		  featureName: "title",
-            editable: false
+            editable:  false 
           }
   ,
           {
@@ -36,12 +36,11 @@ const EventCard = ({ listEventDataBinding,
             condition: "",
             label: "Event Date",
   		  featureName: "createdAt",
-            editable: false
+            editable:  false 
           }
   ]}
-      itemsEvents={(eventItem) => [
-        
-        <Link to={`/order/event/${id}`}>
+      itemsEvents={(upcomingEventItem) => [
+        <Link to={`/order/event/${upcomingEventItem.orderId}`}>
           <Button
             size="sm"
             variant=
@@ -57,4 +56,4 @@ const EventCard = ({ listEventDataBinding,
   )	
 };
 
-export default EventCard;
+export default UpcomingEventCard;

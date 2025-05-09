@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React from 'react'
 import { Link } from "react-router";
@@ -12,7 +12,7 @@ import { Button } from '@/commons/components';
 
 import * as Layouts from "@/commons/layouts";
 
-const HotelCard = ({ listHotelDataBinding,
+const CompletedHotelCard = ({ listCompletedHotelOrderDataBinding,
 		 
 
 	}) => {
@@ -20,28 +20,27 @@ const HotelCard = ({ listHotelDataBinding,
   
   return (
     <Layouts.ListComponentCardLayout
-      items={[listHotelDataBinding]}
+      items={[listCompletedHotelOrderDataBinding]}
   	isRow
   	itemsAttrs={[
           {
-            id: "title",
+            id: "hotelName",
             condition: "",
-            label: "Title",
+            label: "Hotel Name",
   		  featureName: "title",
-            editable: false
+            editable:  false 
           }
   ,
           {
-            id: "startDate",
+            id: "check-InDate",
             condition: "",
-            label: "Start Date",
+            label: "Check-In Date",
   		  featureName: "createdAt",
-            editable: false
+            editable:  false 
           }
   ]}
-      itemsEvents={(hotelItem) => [
-        
-        <Link to={`/order/hotel/${id}`}>
+      itemsEvents={(completedHotelItem) => [
+        <Link to={`/order/hotel/${completedHotelItem.orderId}`}>
           <Button
             size="sm"
             variant=
@@ -57,4 +56,4 @@ const HotelCard = ({ listHotelDataBinding,
   )	
 };
 
-export default HotelCard;
+export default CompletedHotelCard;
