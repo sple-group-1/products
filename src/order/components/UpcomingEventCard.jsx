@@ -27,7 +27,7 @@ const UpcomingEventCard = ({ listUpcomingEventOrderDataBinding,
             id: "eventName",
             condition: "",
             label: "Event Name",
-  		  featureName: "title",
+  		  featureName: "bookingOptionBookingItemTitle",
             editable: false
           }
   ,
@@ -35,7 +35,7 @@ const UpcomingEventCard = ({ listUpcomingEventOrderDataBinding,
             id: "eventDate",
             condition: "",
             label: "Event Date",
-  		  featureName: "createdAt",
+  		  featureName: "startDate",
             editable: false
           }
   ]}

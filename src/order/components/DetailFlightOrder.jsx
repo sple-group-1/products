@@ -33,49 +33,49 @@ const DetailFlightOrder = ({ data }) => {
           id: "airlineName",
           condition: "",
           label: "Airline Name",
-          featureName: "name",
+          featureName: "bookingOptionName",
         }
         ,
         {
           id: "departureLocation",
           condition: "",
           label: "Departure Location",
-          featureName: "departureLocation",
+          featureName: "bookingOptionBookingItemDepartureLocation",
         }
         ,
         {
           id: "departureTime",
           condition: "",
           label: "Departure Time",
-          featureName: "departureTime",
+          featureName: "bookingOptionBookingItemDepartureTime",
         }
         ,
         {
           id: "arrivalLocation",
           condition: "",
           label: "Arrival Location",
-          featureName: "arrivalLocation",
+          featureName: "bookingOptionBookingItemArrivalLocation",
         }
         ,
         {
           id: "arrivalTime",
           condition: "",
           label: "Arrival Time",
-          featureName: "arrivalTime",
+          featureName: "bookingOptionBookingItemArrivalTime",
         }
         ,
         {
           id: "ticketQuantity",
           condition: "",
           label: "Ticket Quantity",
-          featureName: "amount",
+          featureName: "quantity",
         }
         ,
         {
           id: "totalPayment",
           condition: "",
           label: "Total Payment",
-          featureName: "amount",
+          featureName: "totalPrice",
         }
         
       ]}

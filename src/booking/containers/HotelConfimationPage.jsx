@@ -1,7 +1,7 @@
 /*
 	Generated on 09/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React, { useEffect, useState, useContext} from 'react'
 import { Button, Spinner } from "@/commons/components"
@@ -15,7 +15,7 @@ import getDetailHotelBookingDataBinding from '../services/getDetailHotelBookingD
 import DetailHotelRoomBooking from '../components/DetailHotelRoomBooking'
 import getDetailRoomBookingDataBinding from '../services/getDetailRoomBookingDataBinding'
 import DetailPayment from '../components/DetailPayment'
-import getCountAmountDataBinding from '../services/getCountAmountDataBinding'
+import getCountPriceDataBinding from '../services/getCountPriceDataBinding'
 const HotelConfimationPage = props => {
 const { end_date, rooms_count, invalid, roomId, start_date } = useParams()
 
@@ -53,13 +53,13 @@ useEffect(() => {
 	}
 	fetchData()
 }, [])
-const [countAmountDataBinding, setCountAmountDataBinding] = useState()
+const [countPriceDataBinding, setCountPriceDataBinding] = useState()
 useEffect(() => {
 	const fetchData = async () => {
 		try {
 			setIsLoading(prev => ({...prev, detailPayment: true}))
-			const { data: countAmountDataBinding } = await getCountAmountDataBinding({ end_date, start_date, rooms_count })
-			setCountAmountDataBinding(countAmountDataBinding.data)
+			const { data: countPriceDataBinding } = await getCountPriceDataBinding({ end_date, rooms_count, start_date })
+			setCountPriceDataBinding(countPriceDataBinding.data)
 		} finally {
 			setIsLoading(prev => ({...prev, detailPayment: false}))
 		}
@@ -76,6 +76,7 @@ return (
 		buttons={
 			<>
 			<Layouts.ViewContainerButtonLayout>
+			  	<Button className="mt-2 sm:mt-0" variant="primary" onClick={place_order}>Place Order</Button>
 			  	
 			  	
 			
@@ -104,11 +105,11 @@ return (
 <Layouts.DetailContainerLayout
 	title={"Detail Payment"}
 	singularName={"Payment"}
-	items={{...countAmountDataBinding}}
+	items={{...countPriceDataBinding}}
 	isLoading={isLoading.detailPayment}
 	isCorrelatedWithAnotherComponent={false}
 >
-	<DetailPayment {...{ data : { ...countAmountDataBinding }}} />
+	<DetailPayment {...{ data : { ...countPriceDataBinding }}} />
 </Layouts.DetailContainerLayout>
 
 	</Layouts.ViewContainerLayout>

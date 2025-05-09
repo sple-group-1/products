@@ -33,35 +33,35 @@ const DetailEventOrder = ({ data }) => {
           id: "eventName",
           condition: "",
           label: "Event Name",
-          featureName: "title",
+          featureName: "bookingOptionBookingItemTitle",
         }
         ,
         {
           id: "location",
           condition: "",
           label: "Location",
-          featureName: "location",
+          featureName: "bookingOptionBookingItemLocation",
         }
         ,
         {
           id: "eventDate",
           condition: "",
           label: "Event Date",
-          featureName: "createdAt",
+          featureName: "startDate",
         }
         ,
         {
           id: "ticketQuantity",
           condition: "",
           label: "Ticket Quantity",
-          featureName: "amount",
+          featureName: "quantity",
         }
         ,
         {
           id: "totalPayment",
           condition: "",
           label: "Total Payment",
-          featureName: "amount",
+          featureName: "totalPrice",
         }
         
       ]}
