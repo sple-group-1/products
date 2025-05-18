@@ -56,12 +56,12 @@ addMenu({
 	subMenus: []
 })
 
-addMenu({
-	route: '/cart',
-    label: 'Cart',
-    permission: 'ReadCart',
-	subMenus: []
-})
+// addMenu({
+// 	route: '/cart',
+//     label: 'Cart',
+//     permission: 'ReadCart',
+// 	subMenus: []
+// })
 
 addSubMenu('Booking', {
 	route: '/hotel',
