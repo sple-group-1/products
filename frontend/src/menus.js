@@ -45,7 +45,7 @@ export default menus;
 addMenu({
 	route: '/blog',
     label: 'Blog',
-    permission: 'Read Blog',
+    permission: 'ReadBlog',
 	subMenus: []
 })
 

@@ -52,13 +52,15 @@ return (
 		buttons={
 			<>
 			<Layouts.ViewContainerButtonLayout>
+			{checkPermission("CreateBlog") && (
+
 			  	<Link to={`/blog/add
 			  	`}>
 			  		<Button className="p-2" variant="primary">
 			  		  Add Blog
 			  		</Button>
 			  	</Link>
-			  	
+			)}	
 			  	
 			
 			  </Layouts.ViewContainerButtonLayout>

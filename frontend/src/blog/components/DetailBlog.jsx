@@ -62,6 +62,8 @@ const DetailBlog = ({ data }) => {
         
       ]}
       itemsEvents={[
+        checkPermission("CreatePackage") && (
+
             <Button
               variant="secondary"
           onClick={() => {
@@ -70,15 +72,17 @@ const DetailBlog = ({ data }) => {
           }}
             >
               Delete Blog
-            </Button>
+            </Button>)
         ,
+        	checkPermission("UpdateBlog") && (
+
             <Button
           variant="secondary"
           onClick={() => updateBlog()}
         >
           Update Blog
         </Button>
-        
+          )
       ]}
       itemsModals={[
         <Modal
