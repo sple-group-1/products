@@ -79,8 +79,8 @@ const FormConfirmationOrderForm = ({
 		        control={control}
 		        render={({ field, fieldState }) => (
 				  <InputField
-		            label="start Date"
-		            placeholder="Masukkan start Date"
+		            label="Event Date"
+		            placeholder="Masukkan event date"
 					type="date"
 		            fieldState={fieldState}
 					{...field}
@@ -96,8 +96,8 @@ const FormConfirmationOrderForm = ({
 		        control={control}
 		        render={({ field, fieldState }) => (
 				  <InputField
-		            label="quantity"
-		            placeholder="Masukkan quantity"
+		            label="Ticket Quantity"
+		            placeholder="Masukkan ticket quantity"
 		            fieldState={fieldState}
 					{...field}
 					isRequired={false}
