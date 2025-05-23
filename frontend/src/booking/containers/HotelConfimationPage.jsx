@@ -6,24 +6,27 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Button, Spinner } from "@/commons/components"
 import * as Layouts from '@/commons/layouts';
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
+import { notifySuccess, notifyError } from "@/commons/utils/toaster";
 
 import DetailHotelBooking from '../components/DetailHotelBooking'
 import getDetailHotelBookingDataBinding from '../services/getDetailHotelBookingDataBinding'
 import DetailHotelRoomBooking from '../components/DetailHotelRoomBooking'
 import getDetailRoomBookingDataBinding from '../services/getDetailRoomBookingDataBinding'
+import checkout from '../services/checkout'
 import DetailPayment from '../components/DetailPayment'
-import getCountAmountDataBinding from '../services/getCountAmountDataBinding'
+
 const HotelConfimationPage = props => {
-	const { end_date, room_count, id, roomId, start_date } = useParams()
+	const { end_date, room_count, id, roomId, start_date } = useParams();
+	const navigate = useNavigate();
 
 	const [isLoading, setIsLoading] = useState({
 		detailHotelBooking: false,
 		detailHotelRoomBooking: false,
 		detailPayment: false,
-
+		checkout: false
 	});
 	const { setTitle } = useContext(HeaderContext);
 
@@ -44,11 +47,12 @@ const HotelConfimationPage = props => {
 		fetchData()
 	}, [])
 
-	const getBookingData = () => {
+	const getPaymentBookingData = (price) => {
 		return {
 			startDate: start_date,
 			endDate: end_date,
-			roomQuantity: room_count
+			roomQuantity: room_count,
+			amount: price * room_count,
 		}
 	}
 
@@ -60,7 +64,7 @@ const HotelConfimationPage = props => {
 				setDetailRoomBookingDataBinding(detailRoomBookingDataBinding.data)
 
 				const price = detailRoomBookingDataBinding.data.price
-				setCountAmountDataBinding({ ...getBookingData(), amount: price })
+				setCountAmountDataBinding({ ...getPaymentBookingData(price) })
 			} finally {
 				setIsLoading(prev => ({ ...prev, detailHotelRoomBooking: false }))
 			}
@@ -68,10 +72,38 @@ const HotelConfimationPage = props => {
 		fetchData()
 	}, [])
 
-
 	useEffect(() => {
-		setTitle("Hotel Confimation Page")
+		setTitle("Hotel Confirmation Page")
 	}, []);
+
+	// Handle checkout function
+	const handleCheckout = async () => {
+		try {
+			setIsLoading(prev => ({ ...prev, checkout: true }));
+
+			// Prepare payload for the API
+			const payload = {
+				quantity: parseInt(room_count, 10),
+				startDate: start_date,
+				endDate: end_date,
+				bookingOptionId: roomId
+			};
+
+			// Make POST request to the order/save endpoint
+			const response = await checkout(payload);
+
+			notifySuccess('Checkout successful!');
+
+			navigate('/orders/history');
+
+		} catch (error) {
+			console.error('Checkout error:', error);
+			notifyError('Failed to process your order. Please try again.');
+		} finally {
+			setIsLoading(prev => ({ ...prev, checkout: false }));
+		}
+	};
+
 	return (
 		<Layouts.ViewContainerLayout
 			buttons={
@@ -108,11 +140,24 @@ const HotelConfimationPage = props => {
 			</Layouts.DetailContainerLayout>
 
 			<Layouts.ViewContainerButtonLayout>
-				<Button className="p-2 w-1/2 mx-auto" variant="primary">Checkout</Button>
+				<Button
+					className="p-2 w-1/2 mx-auto"
+					variant="primary"
+					onClick={handleCheckout}
+					disabled={isLoading.checkout}
+				>
+					{isLoading.checkout ? (
+						<>
+							<Spinner size="sm" className="mr-2" />
+							Processing...
+						</>
+					) : (
+						'Checkout'
+					)}
+				</Button>
 			</Layouts.ViewContainerButtonLayout>
 
 		</Layouts.ViewContainerLayout>
 	)
 }
 export default HotelConfimationPage
-
