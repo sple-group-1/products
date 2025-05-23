@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import PropTypes from "prop-types";
 
-const TableHead = props => {
-  return <thead>{props.children}</thead>
-}
+const TableHead = (props) => {
+  return <thead>{props.children}</thead>;
+};
 
-export default TableHead
+TableHead.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default TableHead;

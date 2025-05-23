@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import useAppearanceStore from "@/commons/appearance/store";
 import environment from "@/commons/utils/environment";
 import { Toaster } from "react-hot-toast";
 import { ImSpinner } from "react-icons/im";
+import Navbar from "./Navigation/Navbar";
 import { INTERFACE_KITS } from "@/commons/constants/interface";
 import useTypography from "./Typography";
 import Footer from "./Footer";
 import HeaderContext from "./Header/HeaderContext";
-import Header from "./Header";
 import Sidebar from "./Navigation/Sidebar";
+import { useLocation } from "react-router";
 
 const AppLayout = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { interfaceKit, colorTheme, setAppearance } = useAppearanceStore();
   const typography = useTypography();
   const [title, setTitle] = useState("Home");
+  const { pathname } = useLocation();
+  const toggleRef = useRef(null);
 
   useEffect(() => {
     if (!colorTheme) {
@@ -28,6 +31,10 @@ const AppLayout = ({ children }) => {
         .finally(() => setIsLoading(false));
     }
   }, []);
+
+  useEffect(() => {
+    toggleRef.current.checked = false;
+  }, [pathname]);
 
   const isRounded = INTERFACE_KITS[interfaceKit]?.rounded ?? true;
 
@@ -41,26 +48,33 @@ const AppLayout = ({ children }) => {
   return (
     <div
       data-theme={colorTheme}
-      className={`flex relative ${typography} ${
+      className={`drawer ${typography} ${
         isRounded ? "rounded-true" : "rounded-false"
       }`}
     >
-      <Sidebar />
-      <div className="min-h-screen w-screen flex flex-col pl-80">
-        <HeaderContext.Provider value={{ title, setTitle }}>
-          <Header />
-          <div className="flex-1 bg-base-200">{children}</div>
-          <Footer />
-        </HeaderContext.Provider>
+      <input
+        type="checkbox"
+        id="navigation-sidebar"
+        className="drawer-toggle"
+        ref={toggleRef}
+      />
+      <div className="drawer-content">
+        <div className="min-h-screen flex flex-col">
+          <Navbar key={pathname} />
+          <HeaderContext.Provider value={{ title, setTitle }}>
+            <div className="flex-1 bg-base-200">{children}</div>
+          </HeaderContext.Provider>
+        </div>
+        <Footer />
       </div>
-
+      <Sidebar />
       <Toaster />
     </div>
   );
 };
 
 AppLayout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default AppLayout;

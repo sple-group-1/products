@@ -100,10 +100,12 @@ const StaticPageBuilder = ({
         toast.success(`Halaman '${staticPageId}' berhasil dibuat!`);
         setIsFormVisible(false);
       } catch (e) {
-        toast.error(e?.response?.statusText || "Gagal membuat halaman, harap coba lagi!");
+        toast.error(
+          e?.response?.statusText || "Gagal membuat halaman, harap coba lagi!",
+        );
       }
     },
-    [editor]
+    [editor],
   );
 
   const actionUpdateDB = useCallback(() => {
@@ -117,17 +119,26 @@ const StaticPageBuilder = ({
       toast.success(`Halaman '${staticId}' berhasil diubah!`);
       actionRedirectToDetailPage();
     } catch (e) {
-      toast.error(e?.response?.statusText || "Gagal mengubah halaman, harap coba lagi!");
+      toast.error(
+        e?.response?.statusText || "Gagal mengubah halaman, harap coba lagi!",
+      );
     }
   }, [editor, staticId, actionRedirectToDetailPage]);
 
   return (
     <>
       {isFormVisible ? (
-        <StaticPageSaveForm onSubmit={actionSaveToDB} onCancel={() => setIsFormVisible(false)} />
+        <StaticPageSaveForm
+          onSubmit={actionSaveToDB}
+          onCancel={() => setIsFormVisible(false)}
+        />
       ) : (
         <div className="btn-group fixed bottom-6 right-6 shadow-md z-10 rounded-btn bg-white">
-          <Button className="z-10" variant="tertiary" onClick={actionRedirectToDetailPage}>
+          <Button
+            className="z-10"
+            variant="tertiary"
+            onClick={actionRedirectToDetailPage}
+          >
             Batal
           </Button>
           <Button

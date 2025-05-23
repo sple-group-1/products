@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
+import PropTypes from "prop-types";
 
 const TableRow = ({ onClick, children }) => {
-  return <tr onClick={onClick}>{children}</tr>
-}
+  return <tr onClick={onClick}>{children}</tr>;
+};
 
-export default TableRow
+TableRow.propTypes = {
+  onClick: PropTypes.func,
+  children: PropTypes.node.isRequired,
+};
+
+export default TableRow;

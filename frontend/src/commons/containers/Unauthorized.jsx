@@ -1,14 +1,9 @@
-import React, { useEffect,useContext } from 'react'
-import Illustration from "@/commons/static/images/unauthorized.svg"
-import { Button } from '@/commons/components'
+import React from "react";
+import Illustration from "@/commons/static/images/unauthorized.svg";
+import { Button } from "@/commons/components";
 import { Link } from "react-router";
-import HeaderContext from '@/commons/components/Header/HeaderContext'
-
-
 
 const Unauthorized = () => {
-  const { setTitle } = useContext(HeaderContext)
-  useEffect(() => setTitle(""));
   return (
     <div className="h-full bg-base-200 grid place-items-center p-6">
       <div className="flex flex-col items-center text-center">
@@ -21,7 +16,7 @@ const Unauthorized = () => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Unauthorized
+export default Unauthorized;

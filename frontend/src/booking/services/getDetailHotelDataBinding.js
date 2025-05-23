@@ -7,7 +7,7 @@ const getDetailHotelDataBinding = (params = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	let paramsGet = Object.assign(params, {token});
-	return axios.get(`${environment.rootApi}//hotel/:id`, {
+	return axios.get(`${environment.rootApi}/call/hotel/detail`, {
 		params: paramsGet,		
 		headers: {
 			'Authorization': token,

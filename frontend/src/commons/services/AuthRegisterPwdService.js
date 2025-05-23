@@ -15,7 +15,7 @@ class AuthRegisterPwdService {
     try {
       const response = await axios.post(
         `${environment.rootApi}/auth/user/save?${encodedData}`,
-        params
+        params,
       );
 
       return response;

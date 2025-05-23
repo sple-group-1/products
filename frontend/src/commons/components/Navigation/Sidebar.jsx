@@ -1,6 +1,7 @@
 import React from "react";
 import Menu, { MenuItem } from "../Menu";
 import Brand from "../Brand";
+import { GoX } from "react-icons/go";
 import { FiLogOut } from "react-icons/fi";
 import useNavigation from "./useNavigation";
 import { Link } from "react-router";
@@ -11,10 +12,22 @@ const Sidebar = () => {
   const { handleLogout, isAuthenticated, navbarMenus } = useNavigation();
 
   return (
-    <div className="z-50 fixed top-0 left-0">
+    <div className="drawer-side z-50">
+      <label
+        htmlFor="navigation-sidebar"
+        aria-label="close navigation sidebar"
+        className="drawer-overlay"
+      ></label>
       <div className="bg-base-100 h-screen w-80 flex flex-col">
-        <div className="flex p-4 border-base-300 border-b">
+        <div className="flex justify-between items-center p-4 border-base-300 border-b">
           <Brand />
+          <label
+            htmlFor="navigation-sidebar"
+            aria-label="close navigation sidebar"
+            className="btn btn-square btn-ghost"
+          >
+            <GoX className="text-2xl" />
+          </label>
         </div>
 
         <div className="h-full overflow-y-auto">

@@ -1,5 +1,5 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -12,7 +12,7 @@ import { Button } from '@/commons/components';
 
 import * as Layouts from "@/commons/layouts";
 
-const RoomCard = ({ roomOptionAvailabilityData,
+const RoomAvailabilityCard = ({ roomOptionAvailabilityData,
 		 
 		 
 
@@ -79,4 +79,4 @@ const RoomCard = ({ roomOptionAvailabilityData,
   )	
 };
 
-export default RoomCard;
+export default RoomAvailabilityCard;

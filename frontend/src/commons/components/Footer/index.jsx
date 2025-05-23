@@ -1,12 +1,11 @@
-import React from 'react'
-import { Link } from "react-router";
+import React from "react";
 import {
   GrFacebookOption,
   GrInstagram,
   GrTwitter,
   GrYoutube,
-} from 'react-icons/gr'
-import Brand from '../Brand'
+} from "react-icons/gr";
+import Brand from "../Brand";
 
 const Footer = () => {
   return (
@@ -30,7 +29,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

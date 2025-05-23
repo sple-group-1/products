@@ -1,5 +1,5 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -33,14 +33,21 @@ const DetailEventOrder = ({ data }) => {
           id: "eventName",
           condition: "",
           label: "Event Name",
-          featureName: "bookingOptionBookingItemTitle",
+          featureName: "bookingOptionEventTitle",
+        }
+        ,
+        {
+          id: "packageName",
+          condition: "",
+          label: "Package Name",
+          featureName: "bookingOptionPackageName",
         }
         ,
         {
           id: "location",
           condition: "",
           label: "Location",
-          featureName: "bookingOptionBookingItemLocation",
+          featureName: "bookingOptionEventLocation",
         }
         ,
         {
@@ -58,9 +65,9 @@ const DetailEventOrder = ({ data }) => {
         }
         ,
         {
-          id: "totalPayment",
+          id: "totalPrice",
           condition: "",
-          label: "Total Payment",
+          label: "Total Price",
           featureName: "totalPrice",
         }
         

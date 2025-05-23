@@ -1,5 +1,5 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -11,9 +11,9 @@ import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useNavigate } from "react-router";
 import { useAuth } from '@/commons/auth';
-import RoomCard from "../components/RoomCard";
 
 import getRoomOptionAvailabilityData from '../services/getRoomOptionAvailabilityData'
+import RoomAvailabilityCard from '../components/RoomAvailabilityCard';
 const ListRoomOptionAvailabilityPage = props => {
 const { checkPermission } = useAuth();
 
@@ -71,7 +71,7 @@ return (
 	items={[roomOptionAvailabilityData]}
 	isLoading={isLoading.listRoomOptionAvailability}
 >
-	<RoomCard
+	<RoomAvailabilityCard
 		roomOptionAvailabilityData={roomOptionAvailabilityData}
 		
   	/>

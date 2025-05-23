@@ -1,5 +1,5 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -33,49 +33,49 @@ const DetailFlightOrder = ({ data }) => {
           id: "airlineName",
           condition: "",
           label: "Airline Name",
-          featureName: "bookingOptionName",
+          featureName: "name",
         }
         ,
         {
           id: "departureLocation",
           condition: "",
           label: "Departure Location",
-          featureName: "bookingOptionBookingItemDepartureLocation",
+          featureName: "departureLocation",
         }
         ,
         {
           id: "departureTime",
           condition: "",
           label: "Departure Time",
-          featureName: "bookingOptionBookingItemDepartureTime",
+          featureName: "departureTime",
         }
         ,
         {
           id: "arrivalLocation",
           condition: "",
           label: "Arrival Location",
-          featureName: "bookingOptionBookingItemArrivalLocation",
+          featureName: "arrivalLocation",
         }
         ,
         {
           id: "arrivalTime",
           condition: "",
           label: "Arrival Time",
-          featureName: "bookingOptionBookingItemArrivalTime",
+          featureName: "arrivalTime",
         }
         ,
         {
           id: "ticketQuantity",
           condition: "",
           label: "Ticket Quantity",
-          featureName: "quantity",
+          featureName: "amount",
         }
         ,
         {
           id: "totalPayment",
           condition: "",
           label: "Total Payment",
-          featureName: "totalPrice",
+          featureName: "amount",
         }
         
       ]}

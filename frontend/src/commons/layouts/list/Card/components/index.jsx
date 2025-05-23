@@ -40,7 +40,7 @@ const ListComponentCardLayout = ({
   };
 
   useEffect(() => {
-    if(handleChange !== undefined){
+    if (handleChange !== undefined) {
       handleChange(edited);
     }
   }, [edited]);

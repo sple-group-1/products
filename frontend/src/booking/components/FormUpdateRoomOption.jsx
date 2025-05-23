@@ -1,5 +1,5 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -50,7 +50,7 @@ const FormUpdateRoomOption = ({
       ...cleanData,
     })
     .then(({ data: { data } }) => {
-     navigate(`/hotel/${roomOptionData.id}/start_date/:start_date/end_date/:end_date/rooms_count/:rooms_count`)
+     navigate(`/hotel/${roomOptionData.id}`)
   	notifySuccess(`Update Room Option berhasil!`);
     })
     .catch((error) => {

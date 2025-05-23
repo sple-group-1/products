@@ -1,23 +1,23 @@
-import axios from 'axios'
-import Token from '../utils/token'
-import environment from '../utils/environment'
+import axios from "axios";
+import Token from "../utils/token";
+import environment from "../utils/environment";
 
 class ApiadminStaticService {
   static call = async (params = {}) => {
     const encodedData = Object.keys(params)
-      .map(thekey => `${thekey}=${encodeURI(params[thekey])}`)
-      .join('&')
+      .map((thekey) => `${thekey}=${encodeURI(params[thekey])}`)
+      .join("&");
 
     try {
       const response = await axios.get(
-        `${environment.rootApi}/apiadmin/static?${encodedData}`
-      )
+        `${environment.rootApi}/apiadmin/static?${encodedData}`,
+      );
 
-      return response
+      return response;
     } catch (e) {
-      return {}
+      return {};
     }
-  }
+  };
 }
 
-export default ApiadminStaticService
+export default ApiadminStaticService;

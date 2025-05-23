@@ -1,4 +1,5 @@
 import React, { forwardRef, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import CheckBoxField from "./CheckBoxField";
 import { capitalize } from "@/commons/utils/capitalize";
 
@@ -13,7 +14,7 @@ const MultiSelectionField = forwardRef((props, ref) => {
     let tempDefaultValue = [];
 
     if (!defaultValue) {
-      tempDefaultValue = options.map((item) => {
+      tempDefaultValue = options.map(() => {
         return false;
       });
     } else {
@@ -71,5 +72,14 @@ const MultiSelectionField = forwardRef((props, ref) => {
     </div>
   );
 });
+
+MultiSelectionField.displayName = "MultiSelectionField";
+MultiSelectionField.propTypes = {
+  label: PropTypes.string,
+  variant: PropTypes.object,
+  options: PropTypes.array.isRequired,
+  defaultValue: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default MultiSelectionField;

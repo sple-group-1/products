@@ -40,7 +40,7 @@ Tab.propTypes = {
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       children: PropTypes.node,
-    })
+    }),
   ),
   id: PropTypes.string.isRequired,
   size: PropTypes.oneOf(Object.keys(sizes)),

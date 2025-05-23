@@ -27,6 +27,7 @@ export { default as Hero } from "./Hero";
 export { default as List } from "./List";
 export { default as ListItem } from "./ListItem";
 export { default as Menu, MenuItem } from "./Menu";
+export { default as Navbar } from "./Navigation/Navbar";
 export { default as Tab } from "./Tab";
 export { default as Table } from "./Table";
 export { default as TableBody } from "./Table/TableBody";

@@ -1,5 +1,5 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -29,12 +29,12 @@ const DetailHotel = ({ data }) => {
     const confirmDeleteHotel = async () => {
       await deleteHotel({
       });
-      navigate('/hotel/search/keyword/:keyword/start_date/:start_date/end_date/:end_date/rooms_count/:rooms_count');
+      navigate('/hotel');
     };
     const confirmDeleteRoomOption = async () => {
       await deleteRoomOption({
       });
-      navigate('/hotel/:id/start_date/:start_date/end_date/:end_date/rooms_count/:rooms_count');
+      navigate('/hotel/:id');
     };
   
   return (
@@ -45,28 +45,28 @@ const DetailHotel = ({ data }) => {
           id: "title",
           condition: "",
           label: "Title",
-          featureName: "invalid",
+          featureName: "title",
         }
         ,
         {
           id: "image",
           condition: "",
           label: "Image",
-          featureName: "invalid",
+          featureName: "imageUrls",
         }
         ,
         {
           id: "location",
           condition: "",
           label: "Location",
-          featureName: "invalid",
+          featureName: "location",
         }
         ,
         {
           id: "facilities",
           condition: "",
           label: "Facilities",
-          featureName: "invalid",
+          featureName: "facilities",
         }
         
       ]}

@@ -1,5 +1,5 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -18,14 +18,14 @@ import UpdateRoomOptionAvailability from './containers/UpdateRoomOptionAvailabil
 
 const bookingRoutes = [
 { 
-	path: "/hotel",
+	path: "/hotel/search",
 	element: <SearchHotelFormPage />,
 }
 
 	
 ,
 { 
-	path: "/hotel/search/keyword/:keyword/start_date/:start_date/end_date/:end_date/rooms_count/:rooms_count",
+	path: "/hotel",
 	element: <ListHotelPage />,
 }
 
@@ -81,14 +81,14 @@ const bookingRoutes = [
 	
 ,
 { 
-	path: "/hotel/:id/start_date/:start_date/end_date/:end_date/rooms_count/:rooms_count",
+	path: "/hotel/:id",
 	element: <DetailHotelPage />,
 }
 
 	
 ,
 { 
-	path: "/hotel/:Id/room/:RoomId/book",
+	path: "/hotel/:id/room/:roomId/book",
 	element: <HotelConfimationPage />,
 }
 

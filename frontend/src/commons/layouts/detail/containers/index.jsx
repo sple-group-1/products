@@ -4,7 +4,7 @@ import { Spinner } from "@/commons/components";
 
 const DetailContainerLayout = ({ title, isLoading, items, children }) => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto max-w-xl">
       <h2 className="text-center sm:text-left">{title}</h2>
       {isLoading ? (
         <div className={"py-8 text-center"}>

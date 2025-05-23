@@ -1,4 +1,6 @@
-import React from 'react'
+import React from "react";
+import PropTypes from "prop-types";
+
 const ListItem = ({ onClick, variant, children }) => {
   return (
     <li
@@ -8,7 +10,13 @@ const ListItem = ({ onClick, variant, children }) => {
     >
       {children}
     </li>
-  )
-}
+  );
+};
 
-export default ListItem
+ListItem.propTypes = {
+  onClick: PropTypes.func,
+  variant: PropTypes.object,
+  children: PropTypes.node.isRequired,
+};
+
+export default ListItem;

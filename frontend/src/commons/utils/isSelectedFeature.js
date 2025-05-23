@@ -4,20 +4,5 @@ export default isSelectedFeature
 
 var selectedFeatures = Array.from(new Set ([
 
-"Blog",
-
-
-"Order",
-
-
-"Cart",
-
-
 "Booking",
 
-
-"Wishlist",
-
-
-"Home",
-]))

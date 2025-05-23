@@ -15,7 +15,7 @@ class AuthForgotPasswordService {
     try {
       const response = await axios.post(
         `${environment.rootApi}/auth/forgot-password?${encodedData}`,
-        params
+        params,
       );
 
       return response;

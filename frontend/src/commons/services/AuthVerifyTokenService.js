@@ -13,13 +13,17 @@ class AuthVerifyTokenService {
     // const encodedData = `token=${token}`;
 
     try {
-      const response = await axios.post(`${environment.rootApi}/auth/verify-token`, data, {
-        params: { token },
+      const response = await axios.post(
+        `${environment.rootApi}/auth/verify-token`,
+        data,
+        {
+          params: { token },
 
-        headers: {
-          Authorization: token,
+          headers: {
+            Authorization: token,
+          },
         },
-      });
+      );
 
       return response;
     } catch (e) {

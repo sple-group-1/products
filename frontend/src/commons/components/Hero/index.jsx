@@ -1,25 +1,28 @@
-import React from 'react'
+import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router";
 
 const Hero = ({ banner }) => {
   return (
     <div
-    className="hero min-h-screen"
-  >
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row">
-          <img src={banner} className="max-w-prose rounded-lg shadow-2xl" />
-          <div>
-            <h1 className="text-5xl font-bold">Selamat Datang!</h1>
-            <p className="py-6">Yuk cari tahu lebih lanjut mengenai kami!</p>
-            <Link to="/aboutus">
-            	<button className="btn btn-primary">Tentang Kami</button>
-            </Link>
-          </div>
+      className="hero min-h-screen"
+      style={{ backgroundImage: `url("${banner}")` }}
+    >
+      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-content text-center text-neutral-content">
+        <div className="max-w-md">
+          <h1 className="mb-5 text-5xl font-bold">Selamat Datang</h1>
+          <p className="mb-5">Yuk cari tahu lebih lanjut mengenai kami!</p>
+          <Link to="/aboutus">
+            <button className="btn btn-primary">Tentang Kami</button>
+          </Link>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+Hero.propTypes = {
+  banner: PropTypes.string.isRequired,
+};
 
-export default Hero
+export default Hero;

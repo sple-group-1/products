@@ -1,6 +1,7 @@
-import { INTERFACE_KITS } from '@/commons/constants/interface'
-import React from 'react'
-import { useWatch } from 'react-hook-form'
+import { INTERFACE_KITS } from "@/commons/constants/interface";
+import React from "react";
+import PropTypes from "prop-types";
+import { useWatch } from "react-hook-form";
 import {
   Button,
   InputField,
@@ -11,25 +12,27 @@ import {
   TableHead,
   TableRow,
   VisualizationAttr,
-} from '@/commons/components'
-import { FONT_CLASSNAMES } from '@/commons/components/Typography/variants'
+} from "@/commons/components";
+import { FONT_CLASSNAMES } from "@/commons/components/Typography/variants";
 
 const Preview = ({ control }) => {
-  const { colorTheme: themeName, interfaceKit: kitName } = useWatch({ control })
+  const { colorTheme: themeName, interfaceKit: kitName } = useWatch({
+    control,
+  });
 
-  const kit = INTERFACE_KITS[kitName]
-  const typographyStyle = kit?.typography ?? 'sans'
-  const typography = FONT_CLASSNAMES[typographyStyle]
-  const isRounded = kit.rounded
+  const kit = INTERFACE_KITS[kitName];
+  const typographyStyle = kit?.typography ?? "sans";
+  const typography = FONT_CLASSNAMES[typographyStyle];
+  const isRounded = kit.rounded;
 
-  const tableHeads = ['No', 'Nama', 'Jumlah']
-  const tableRows = ['Andromeda', 'Cassiopeia', 'Pegasus', 'Centaurus']
+  const tableHeads = ["No", "Nama", "Jumlah"];
+  const tableRows = ["Andromeda", "Cassiopeia", "Pegasus", "Centaurus"];
 
   return (
     <div
       data-theme={themeName}
       className={`card p-4 border border-gray-500 w-full bg-base-200 grid grid-cols-1 md:grid-cols-2 grid-rows-auto md:grid-rows-2 gap-4 ${typography} ${
-        isRounded ? 'rounded-true' : 'rounded-false'
+        isRounded ? "rounded-true" : "rounded-false"
       }`}
     >
       <div className="card prose">
@@ -51,14 +54,13 @@ const Preview = ({ control }) => {
       </div>
       <div className="card bg-base-100 row-span-2">
         <div className="card-body not-prose">
-          <InputField
-            kit={kit}
-            label="Text Field"
-            placeholder="Placeholder"
-          />
+          <InputField kit={kit} label="Text Field" placeholder="Placeholder" />
           <SelectionField
             label="Selection Field"
-            options={[{id: 'Option 1', name: 'Option 1'}, {id: 'Option 2', name: 'Option 2'}]}
+            options={[
+              { id: "Option 1", name: "Option 1" },
+              { id: "Option 2", name: "Option 2" },
+            ]}
             placeholder="Selection Field"
             isRequired={false}
           />
@@ -69,7 +71,7 @@ const Preview = ({ control }) => {
           <Table kit={kit} compact>
             <TableHead>
               <TableRow>
-                {tableHeads.map(th => (
+                {tableHeads.map((th) => (
                   <TableCell isHeading key={th}>
                     {th}
                   </TableCell>
@@ -115,7 +117,11 @@ const Preview = ({ control }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Preview
+Preview.propTypes = {
+  control: PropTypes.object.isRequired,
+};
+
+export default Preview;

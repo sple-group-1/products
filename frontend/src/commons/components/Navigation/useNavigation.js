@@ -6,7 +6,7 @@ export default function useNavigation() {
   const { checkPermission, isAuthenticated, logout } = useAuth();
   const { pathname } = useLocation();
   const isNotAuthPage = !["/register", "/login", "/forgot-password"].includes(
-    pathname
+    pathname,
   );
   const navbarMenus = [
     ...menus,

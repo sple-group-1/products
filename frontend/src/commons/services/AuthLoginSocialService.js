@@ -15,7 +15,7 @@ class AuthLoginSocialService {
     try {
       const response = await axios.post(
         `${environment.rootApi}/auth/login/social?${encodedData}`,
-        params
+        params,
       );
 
       return response;

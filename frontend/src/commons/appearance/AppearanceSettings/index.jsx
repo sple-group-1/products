@@ -1,37 +1,37 @@
-import { COLOR_THEMES, INTERFACE_KITS } from '@/commons/constants/interface'
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { Button } from '@/commons/components'
-import useAppearanceStore from '@/commons/appearance/store'
-import Accordion from './Accordion'
-import Preview from './Preview'
-import environment from '@/commons/utils/environment'
-import axios from 'axios'
+import { COLOR_THEMES, INTERFACE_KITS } from "@/commons/constants/interface";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Button } from "@/commons/components";
+import useAppearanceStore from "@/commons/appearance/store";
+import Accordion from "./Accordion";
+import Preview from "./Preview";
+import environment from "@/commons/utils/environment";
+import axios from "axios";
 
 const AppearanceSettings = () => {
-  const { interfaceKit, colorTheme, setAppearance } = useAppearanceStore()
+  const { interfaceKit, colorTheme, setAppearance } = useAppearanceStore();
   const { register, control, reset, handleSubmit } = useForm({
     defaultValues: { interfaceKit, colorTheme },
-  })
-  const [active, setActive] = useState('kit')
-  const [isLoading, setIsLoading] = useState(false)
+  });
+  const [active, setActive] = useState("kit");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const saveConfig = data => {
-    setIsLoading(true)
-    setAppearance(data)
+  const saveConfig = (data) => {
+    setIsLoading(true);
+    setAppearance(data);
     axios
       .post(`${environment.staticServerApi}/appearance`, data)
-      .finally(() => setIsLoading(false))
-  }
+      .finally(() => setIsLoading(false));
+  };
 
   const resetConfig = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     axios
       .get(`${environment.staticServerApi}/appearance`)
-      .then(res => reset({ ...res.data }))
-      .catch(error => console.error(error))
-      .finally(() => setIsLoading(false))
-  }
+      .then((res) => reset({ ...res.data }))
+      .catch((error) => console.error(error))
+      .finally(() => setIsLoading(false));
+  };
 
   return (
     <>
@@ -47,7 +47,7 @@ const AppearanceSettings = () => {
             active={active}
             setActive={setActive}
           >
-            {COLOR_THEMES.map(theme => (
+            {COLOR_THEMES.map((theme) => (
               <div key={theme} className="form-control">
                 <label className="label cursor-pointer gap-6">
                   <div className="label-text flex-1 not-prose">
@@ -69,7 +69,7 @@ const AppearanceSettings = () => {
                     </div>
                   </div>
                   <input
-                    {...register('colorTheme')}
+                    {...register("colorTheme")}
                     type="radio"
                     value={theme}
                     className="radio checked:bg-neutral"
@@ -91,7 +91,7 @@ const AppearanceSettings = () => {
                     <span className="badge mr-1">Gaya #{index + 1}</span> {kit}
                   </div>
                   <input
-                    {...register('interfaceKit')}
+                    {...register("interfaceKit")}
                     type="radio"
                     value={kit}
                     className="radio checked:bg-neutral"
@@ -106,10 +106,10 @@ const AppearanceSettings = () => {
             </Button>
             <Button
               variant="primary"
-              className={`px-8 ${isLoading ? 'loading' : null}`}
+              className={`px-8 ${isLoading ? "loading" : null}`}
               type="submit"
             >
-              {isLoading ? 'Loading..' : 'Simpan'}
+              {isLoading ? "Loading.." : "Simpan"}
             </Button>
           </div>
         </form>
@@ -119,7 +119,7 @@ const AppearanceSettings = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default AppearanceSettings
+export default AppearanceSettings;

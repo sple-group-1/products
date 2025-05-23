@@ -36,7 +36,7 @@ const StaticPageDetail = ({ slug = "" }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${environment.staticServerApi}/static-data/${slug || staticPageId}`
+          `${environment.staticServerApi}/static-data/${slug || staticPageId}`,
         );
         setStyleElement(response.data.cssData);
         setHtmlData(response.data.htmlData);
@@ -46,7 +46,9 @@ const StaticPageDetail = ({ slug = "" }) => {
       } catch (e) {
         setIsLoading(false);
         setIsError(true);
-        setErrorMessage(e?.response?.statusText || "Failed, please try again later!");
+        setErrorMessage(
+          e?.response?.statusText || "Failed, please try again later!",
+        );
       }
     };
 

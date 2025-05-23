@@ -1,39 +1,33 @@
-import { Button, InputField } from '@/commons/components'
-import AuthForgotPasswordService from '@/commons/services/AuthForgotPasswordService'
-import AuthForgotPasswordTokenService from '@/commons/services/AuthForgotPasswordTokenService'
-import React, { useState,useEffect,useContext } from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import { Button, InputField } from "@/commons/components";
+import AuthForgotPasswordService from "@/commons/services/AuthForgotPasswordService";
+import AuthForgotPasswordTokenService from "@/commons/services/AuthForgotPasswordTokenService";
+import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import HeaderContext from '@/commons/components/Header/HeaderContext'
 
 const ForgotPasswordPage = () => {
-  const { setTitle } = useContext(HeaderContext)
-  const { control: emailControl, handleSubmit: handleSubmitEmail } = useForm()
-  const {
-    control: newPasswordControl,
-    handleSubmit: handleSubmitNewPassword,
-  } = useForm()
-  const navigate = useNavigate()
+  const { control: emailControl, handleSubmit: handleSubmitEmail } = useForm();
+  const { control: newPasswordControl, handleSubmit: handleSubmitNewPassword } =
+    useForm();
+  const navigate = useNavigate();
 
-  const [forgotPasswordToken, setForgotPasswordToken] = useState()
+  const [forgotPasswordToken, setForgotPasswordToken] = useState();
 
-  const requestForgotPasswordToken = async data => {
-    const { data: response } = await AuthForgotPasswordTokenService.call(data)
+  const requestForgotPasswordToken = async (data) => {
+    const { data: response } = await AuthForgotPasswordTokenService.call(data);
     if (response) {
-      setForgotPasswordToken(response.data.forgotPasswordToken)
+      setForgotPasswordToken(response.data.forgotPasswordToken);
     }
-  }
+  };
 
-  const changePassword = async data => {
-    data = { ...data, forgotPasswordToken }
-    const response = await AuthForgotPasswordService.call(data)
-    if (response['data']) {
-      alert('Berhasil mengganti password. Silakan login kembali.')
-      navigate(`/login`)
+  const changePassword = async (data) => {
+    data = { ...data, forgotPasswordToken };
+    const response = await AuthForgotPasswordService.call(data);
+    if (response["data"]) {
+      alert("Berhasil mengganti password. Silakan login kembali.");
+      navigate(`/login`);
     }
-  }
-
-  useEffect(() => setTitle("Forgot Password Page"));
+  };
 
   return (
     <div className="h-full bg-base-200 grid place-items-center py-16 px-6">
@@ -90,7 +84,7 @@ const ForgotPasswordPage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ForgotPasswordPage
+export default ForgotPasswordPage;

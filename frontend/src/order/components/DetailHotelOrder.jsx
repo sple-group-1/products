@@ -1,7 +1,7 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.8.0
+	version 3.9.0
 */
 import React, { useContext } from 'react';
 import { useNavigate, Link } from "react-router";
@@ -33,49 +33,49 @@ const DetailHotelOrder = ({ data }) => {
           id: "hotelName",
           condition: "",
           label: "Hotel Name",
-          featureName: "bookingOptionBookingItemTitle",
+          featureName: "title",
         }
         ,
         {
           id: "location",
           condition: "",
           label: "Location",
-          featureName: "bookingOptionBookingItemLocation",
+          featureName: "location",
         }
         ,
         {
           id: "roomType",
           condition: "",
           label: "Room Type",
-          featureName: "bookingOptionName",
+          featureName: "name",
         }
         ,
         {
           id: "check-InDate",
           condition: "",
           label: "Check-In Date",
-          featureName: "startDate",
+          featureName: "createdAt",
         }
         ,
         {
           id: "check-OutDate",
           condition: "",
           label: "Check-Out Date",
-          featureName: "endDate",
+          featureName: "createdAt",
         }
         ,
         {
           id: "roomQuantity",
           condition: "",
           label: "Room Quantity",
-          featureName: "quantity",
+          featureName: "amount",
         }
         ,
         {
           id: "totalPayment",
           condition: "",
           label: "Total Payment",
-          featureName: "totalPrice",
+          featureName: "amount",
         }
         
       ]}

@@ -2,9 +2,9 @@ import React, { useRef } from "react";
 
 import {
   TableBody,
+  TableCell,
   TableHead,
   TableRow,
-  TableCell,
 } from "@/commons/components";
 
 const ReportRow = ({ items, itemsAttrs }) => {

@@ -1,5 +1,5 @@
 /*
-	Generated on 09/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -27,7 +27,7 @@ const CompletedFlightCard = ({ listCompletedFlightOrderDataBinding,
             id: "flightTo",
             condition: "",
             label: "Flight To",
-  		  featureName: "bookingOptionBookingItemArrivalLocation",
+  		  featureName: "arrivalLocation",
             editable: false
           }
   ,
@@ -35,7 +35,7 @@ const CompletedFlightCard = ({ listCompletedFlightOrderDataBinding,
             id: "departureDate",
             condition: "",
             label: "Departure Date",
-  		  featureName: "bookingOptionBookingItemDepartureTime",
+  		  featureName: "departureTime",
             editable: false
           }
   ]}
