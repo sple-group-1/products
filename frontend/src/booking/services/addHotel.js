@@ -9,7 +9,7 @@ const addHotel = (data = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	
-	return axios.post(`${environment.rootApi}/call/hotel/add`, body,
+	return axios.post(`${environment.rootApi}/call/hotel/save`, body,
 	{
 		params: { token },
 		

@@ -9,7 +9,7 @@ const addRoomOption = (data = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	
-	return axios.post(`${environment.rootApi}/call/roomoption/add`, body,
+	return axios.post(`${environment.rootApi}/call/roomoption/save`, body,
 	{
 		params: { token },
 		
