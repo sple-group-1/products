@@ -9,7 +9,7 @@ const updateBlog = (data = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	
-	return axios.put(`${environment.rootApi}/call/blog/update`, body,
+	return axios.update(`${environment.rootApi}/call/blog/update`, body,
 	{
 		params: { token },
 		

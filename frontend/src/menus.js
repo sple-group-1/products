@@ -43,32 +43,12 @@ export const settingsMenu = [
 export default menus;
 
 addMenu({
-	route: '/blog',
-    label: 'Blog',
-    permission: 'ReadBlog',
-	subMenus: []
-})
-
-addMenu({
 	route: '/order',
     label: 'Order',
-    permission: 'ReadOrder',
+    permission: '',
 	subMenus: []
 })
 
-// addMenu({
-// 	route: '/cart',
-//     label: 'Cart',
-//     permission: 'ReadCart',
-// 	subMenus: []
-// })
-
-addSubMenu('Booking', {
-	route: '/hotel',
-	label: 'Booking Hotel',
-    permission: '',
-	
-})
 addMenu({
 	route: '#',
     label: 'Booking',
@@ -76,17 +56,9 @@ addMenu({
 	subMenus: []
 })
 
-
 addSubMenu('Booking', {
 	route: '/event',
 	label: 'Booking Event',
-    permission: 'ReadEvent',
+    permission: '',
 	
 })
-
-// addMenu({
-// 	route: '/wishlist/collections',
-//     label: 'Wishlist',
-//     permission: 'ReadWishList',
-// 	subMenus: []
-// })

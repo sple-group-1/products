@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React, { useEffect, useState, useContext} from 'react'
 import { Button, Spinner } from "@/commons/components"
@@ -28,9 +28,7 @@ const [listBlogDataBinding, setListBlogDataBinding] = useState()
 	
 	
 
-	useEffect(() => {
-		
-
+useEffect(() => {
 		const fetchData = async () => {
 			try {
 				setIsLoading(prev => ({...prev, listRowBlog: true}))
@@ -40,7 +38,9 @@ const [listBlogDataBinding, setListBlogDataBinding] = useState()
 				setIsLoading(prev => ({...prev, listRowBlog: false}))
 			}
 		}
-		fetchData()
+		if (checkPermission("Read Blog")) { 
+			fetchData()
+		}
   	}, [])
 
 	
@@ -52,21 +52,22 @@ return (
 		buttons={
 			<>
 			<Layouts.ViewContainerButtonLayout>
-			{checkPermission("CreateBlog") && (
-
-			  	<Link to={`/blog/add
-			  	`}>
-			  		<Button className="p-2" variant="primary">
-			  		  Add Blog
-			  		</Button>
-			  	</Link>
-			)}	
+			  	{checkPermission("Create Blog") &&  (
+			  	  <Link to={`/blog/add
+			  	  `}>
+			  	  	<Button className="p-2" variant="primary">
+			  	  	  Add Blog
+			  	  	</Button>
+			  	  </Link>
+			  	  
+			  	)}
 			  	
 			
 			  </Layouts.ViewContainerButtonLayout>
 			</>
 		}
 	>
+{ checkPermission("Read Blog") && ( 
 <Layouts.ListContainerCardLayout
 	title={"ListRow Blog"}
 	singularName={"Blog"}
@@ -78,6 +79,7 @@ return (
 		
   	/>
 </Layouts.ListContainerCardLayout>
+)}
 
 	</Layouts.ViewContainerLayout>
   )

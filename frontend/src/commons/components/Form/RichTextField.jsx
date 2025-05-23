@@ -38,15 +38,9 @@ const RichTextField = forwardRef(function RichTextField(props, ref) {
       },
     });
     ref.current = quill;
-
-
-if (props.value) {
-    quill.clipboard.dangerouslyPasteHTML(props.value);
-  }
-
-  quill.on("text-change", () => {
-    onChange?.(quill.getSemanticHTML());
-  });
+    quill.on("text-change", () => {
+      onChange?.(quill.getSemanticHTML());
+    });
     return () => {
       ref.current = null;
       container.innerHTML = "";

@@ -1,8 +1,9 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
+import RequireAuth from "@/commons/auth/RequireAuth";
 import React from 'react';
 import BlogPage from './containers/BlogPage'
 import AddBlogPage from './containers/AddBlogPage'
@@ -12,28 +13,28 @@ import UpdateBlogPage from './containers/UpdateBlogPage'
 const blogRoutes = [
 { 
 	path: "/blog",
-	element: <BlogPage />,
+	element: <RequireAuth permissionNeeded="Read Blog" ><BlogPage/></RequireAuth>
 }
 
 	
 ,
 { 
 	path: "/blog/add",
-	element: <AddBlogPage />,
+	element: <RequireAuth permissionNeeded="Create Blog" ><AddBlogPage/></RequireAuth>
 }
 
 	
 ,
 { 
 	path: "blog/update",
-	element: <UpdateBlogPage />,
+	element: <RequireAuth permissionNeeded="UpdateBlog" ><UpdateBlogPage/></RequireAuth>
 }
 
 	
 ,
 { 
 	path: "/blog/:id",
-	element: <DetailBlogPage />,
+	element: <RequireAuth permissionNeeded="Read Blog" ><DetailBlogPage/></RequireAuth>
 }
 
 	

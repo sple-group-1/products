@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -38,7 +38,8 @@ const CartItemCardForm = ({
 	, handleChange
 	, selectedItems
 	, setSelectedItems
-	, isLoading }) => {
+	, isLoading
+ }) => {
   const { 
     control, 
     handleSubmit,
@@ -55,7 +56,6 @@ const CartItemCardForm = ({
   		data: selectedItems
     })
     .then(({ data: { data } }) => {
-      navigate(`/cart`)
   	notifySuccess(`Save Order berhasil!`);
     })
     .catch((error) => {
@@ -72,7 +72,7 @@ const CartItemCardForm = ({
   	  formFields={<Layouts.ListContainerTableLayout
   	  	title={"ListRow CartItem"}
   	  	singularName={"CartItem"}
-  	  	items={[dataBinding]}
+  	  	items={dataBinding}
   	  	isLoading={isLoading}
   	  >
   	  	<CartItemCard
@@ -86,7 +86,7 @@ const CartItemCardForm = ({
   	  </Layouts.ListContainerTableLayout>}
   
   	  itemsEvents={[
-  			
+  			<Button key="Checkout" >Checkout</Button>
       ]}
     />
   

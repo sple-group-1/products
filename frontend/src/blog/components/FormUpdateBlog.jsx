@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -34,10 +34,16 @@ import * as Layouts from "@/commons/layouts";
 const FormUpdateBlog = ({ 
 	blogData
  }) => {
+  
+  
+  
   const { 
     control, 
     handleSubmit,
   } = useForm({ defaultValues: blogData })
+  
+  
+  
   
   
   
@@ -92,14 +98,13 @@ const FormUpdateBlog = ({
 		        name="content"
 		        control={control}
 		        render={({ field, fieldState }) => (
-        <RichTextField
-          label="Content"
-          placeholder="Masukkan content"
-          defaultValue={blogData.content}
-          fieldState={fieldState}
-          {...field}
-          isRequired={false}
-        />
+				  <RichTextField
+		            label="Content"
+		            placeholder="Masukkan content"
+		            defaultValue={blogData.content}	            fieldState={fieldState}
+					{...field}
+					isRequired={false}
+		          />
 		        )}
 		      />
 		  ,

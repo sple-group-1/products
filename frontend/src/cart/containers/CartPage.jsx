@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React, { useEffect, useState, useContext} from 'react'
 import { Button, Spinner } from "@/commons/components"
@@ -23,14 +23,10 @@ const { checkPermission } = useAuth();
 	const { setTitle } = useContext(HeaderContext);
 
 const [dataBinding, setDataBinding] = useState()
-	
+	const itemId = "checkbox"
 	const [selectedItems, setSelectedItems] = useState([])
-	const [edited, setEdited] = useState([])
-	const { itemId } = useParams()
-
-	useEffect(() => {
-		
-
+	const [edited, setEdited] = useState(dataBinding)
+useEffect(() => {
 		const fetchData = async () => {
 			try {
 				setIsLoading(prev => ({...prev, listRowCartItem: true}))
@@ -43,21 +39,15 @@ const [dataBinding, setDataBinding] = useState()
 		fetchData()
   	}, [])
 
-	useEffect(() => {
-	  if (dataBinding) {
-	    setEdited(dataBinding)
-	  }
-	}, [dataBinding])
-	
-	const handleChange = (updatedItems) => {
-		setEdited(
-			(prevData) =>
-			prevData.map((p, idx) => ({
-				...p,
-				...updatedItems[idx],
-			}))
-		);
-	};
+const handleChange = (updatedItems) => {
+	setEdited(
+		(prevData) =>
+		prevData.map((p, idx) => ({
+			...p,
+			...updatedItems[idx],
+		}))
+	);
+};
 
 	
 	useEffect(() => {
@@ -81,7 +71,7 @@ return (
 		singularName={"CartItem"}
 	>
 		<CartItemCardForm
-			dataBinding={dataBinding}
+			dataBinding={[dataBinding]}
 			edited={[edited]}
 			itemId={itemId}
         	handleChange={handleChange}

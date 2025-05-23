@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React, { useEffect, useState, useContext} from 'react'
 import { Button, Spinner } from "@/commons/components"
@@ -10,11 +10,13 @@ import { Link } from "react-router";
 import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useSearchParams } from "react-router";
+import { useAuth } from '@/commons/auth';
 import FormUpdateBlog from '../components/FormUpdateBlog'
 
 import getBlogData from '../services/getBlogData'
 const UpdateBlogPage = props => {
 const { id } = useParams()
+	const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
 	updateBlog: false,
@@ -34,7 +36,9 @@ useEffect(() => {
 
 	    setIsLoading(prev => ({...prev, updateBlog: false}))
     }
-	fetch()
+	if (checkPermission("UpdateBlog")) { 
+		fetch()
+	}
   }, [])
 
 	
@@ -59,7 +63,8 @@ return (
 			</>
 		}
 	>
-<Layouts.FormContainerLayout
+{ checkPermission("UpdateBlog") && ( 
+	<Layouts.FormContainerLayout
 		singularName={"Blog"}
 		isLoading={isLoading.updateBlog}
 	>
@@ -72,6 +77,8 @@ return (
 		 /> 
 		</>)  : (<></>)}
 	</Layouts.FormContainerLayout>
+
+)}
 
 	</Layouts.ViewContainerLayout>
   )

@@ -1,7 +1,7 @@
 /*
-	Generated on 18/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React from 'react';
 import { Link, useNavigate } from "react-router";
@@ -30,7 +30,6 @@ const WishlistTable = ({ listWishlist,
   const [showModalDeleteWishlistConfirmation, setShowModalDeleteWishlistConfirmation] = React.useState(false);
   
   
-  
   	
     const deleteWishlist = async (selectedDeleteWishlistConfirmation) => {
       await deleteWishlist({
@@ -48,11 +47,10 @@ const WishlistTable = ({ listWishlist,
             condition: "",
             label: "addedAt",
   		  featureName: "addedAt",
-            editable: false
+            editable:  false 
           }
   ]}
         itemsEvents={(wishlistItem) => [
-          
           <Link to=''>
             <Button
               size="sm"

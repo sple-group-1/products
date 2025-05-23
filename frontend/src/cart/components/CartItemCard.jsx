@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React from 'react'
 import { Link } from "react-router";
@@ -24,7 +24,7 @@ const CartItemCard = ({ dataBinding,
   
   return (
     <Layouts.ListComponentCardLayout
-      items={[dataBinding]}
+      items={dataBinding}
   	itemId={itemId}
   	handleChange={handleChange}
   	selectedItems={selectedItems}
@@ -43,7 +43,7 @@ const CartItemCard = ({ dataBinding,
             condition: "",
             label: "Quantity",
   		  featureName: "quantity",
-            editable: false
+            editable:  false 
           }
   ,
           {
@@ -51,7 +51,7 @@ const CartItemCard = ({ dataBinding,
             condition: "",
             label: "Start Date",
   		  featureName: "startDate",
-            editable: false
+            editable:  false 
           }
   ,
           {
@@ -59,7 +59,7 @@ const CartItemCard = ({ dataBinding,
             condition: "",
             label: "End Date",
   		  featureName: "endDate",
-            editable: false
+            editable:  false 
           }
   ,
           {
@@ -67,7 +67,7 @@ const CartItemCard = ({ dataBinding,
             condition: "",
             label: "Amount",
   		  featureName: "amount",
-            editable: false
+            editable:  false 
           }
   ,
           {
@@ -75,22 +75,10 @@ const CartItemCard = ({ dataBinding,
             condition: "",
             label: "Id",
   		  featureName: "id",
-            editable: false
+            editable:  false 
           }
   ]}
       itemsEvents={(cartItemItem) => [
-        
-        <Link to=''>
-          <Button 
-             variant=
-                        "secondary"
-             onClick={() => checkout(cartItemItem)}
-          >
-             Checkout
-          </Button>
-        </Link>
-        
-        
   	]}
     />
   )	

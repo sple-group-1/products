@@ -9,7 +9,7 @@ const saveBlog = (data = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	
-	return axios.post(`${environment.rootApi}/call/blog/create`, body,
+	return axios.post(`${environment.rootApi}/call/blog/save`, body,
 	{
 		params: { token },
 		

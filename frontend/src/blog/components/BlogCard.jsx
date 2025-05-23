@@ -1,7 +1,7 @@
 /*
-	Generated on 02/05/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+	version 3.8.0
 */
 import React from 'react'
 import { Link } from "react-router";
@@ -17,15 +17,10 @@ const BlogCard = ({ listBlogDataBinding,
 
 	}) => {
   const { checkPermission } = useAuth();
-  const {id } = useParams()
-  const detail = async (blogItem) => {
-    isMobile() && navigate(`/blog/${blogItem.id}`
-    );
-  };
+  
   return (
     <Layouts.ListComponentCardLayout
-    items={[listBlogDataBinding]}
-    detail={detail}
+      items={[listBlogDataBinding]}
   	isRow
   	itemsAttrs={[
           {
@@ -33,19 +28,11 @@ const BlogCard = ({ listBlogDataBinding,
             condition: "",
             label: "Title",
   		  featureName: "title",
-            editable: false
-          },
-          {
-            id: "createdAt",
-            condition: "",
-            label: "Created At",
-  		  featureName: "createdAt",
-            editable: false
+            editable:  false 
           }
   ]}
       itemsEvents={(blogItem) => [
-        
-        <Link to={`/blog/${blogItem.id}`}>
+        <Link to={`/blog/${id}`}>
           <Button
             size="sm"
             variant=
