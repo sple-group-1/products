@@ -9,7 +9,7 @@ cleanup() {
 
 trap cleanup SIGINT
 
-java -cp onlineticketing.product.tukangtiket --module-path onlineticketing.product.tukangtiket -m onlineticketing.product.tukangtiket 2>&1 | tee java.log &
+java -cp onlineticketing.product.bobogo --module-path onlineticketing.product.bobogo -m onlineticketing.product.bobogo 2>&1 | tee java.log &
 JAVA_PID=$!
 TEE_PID=$(pgrep -n tee)
 tail -f java.log --pid=$TEE_PID | while read -r LINE; do
@@ -18,9 +18,9 @@ tail -f java.log --pid=$TEE_PID | while read -r LINE; do
     fi
 done
 
-echo "SELECT 'CREATE DATABASE onlineticketing_product_tukangtiket' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'onlineticketing_product_tukangtiket') \gexec" | psql "postgresql://postgres:postgres@localhost"
+echo "SELECT 'CREATE DATABASE onlineticketing_product_bobogo' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'onlineticketing_product_bobogo') \gexec" | psql "postgresql://postgres:postgres@localhost"
 for file in sql/*.sql; do
-    psql -a -f "$file" "postgresql://postgres:postgres@localhost/onlineticketing_product_tukangtiket"
+    psql -a -f "$file" "postgresql://postgres:postgres@localhost/onlineticketing_product_bobogo"
 done
 
 wait

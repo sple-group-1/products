@@ -10,12 +10,12 @@ trap cleanup SIGINT
 
 read -p "Enter the path to the frontend directory: " frontend_dir
 
-echo "SELECT 'CREATE DATABASE onlineticketing_product_tukangtiket' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'onlineticketing_product_tukangtiket') \gexec" | psql "postgresql://postgres:postgres@localhost"
+echo "SELECT 'CREATE DATABASE onlineticketing_product_bobogo' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'onlineticketing_product_bobogo') \gexec" | psql "postgresql://postgres:postgres@localhost"
 for file in sql/*.sql; do
-    psql -a -f "$file" "postgresql://postgres:postgres@localhost/onlineticketing_product_tukangtiket"
+    psql -a -f "$file" "postgresql://postgres:postgres@localhost/onlineticketing_product_bobogo"
 done
 
-java -cp onlineticketing.product.tukangtiket --module-path onlineticketing.product.tukangtiket -m onlineticketing.product.tukangtiket &
+java -cp onlineticketing.product.bobogo --module-path onlineticketing.product.bobogo -m onlineticketing.product.bobogo &
 
 cd $frontend_dir && {
     npm install && {
