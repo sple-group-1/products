@@ -14,9 +14,7 @@ import { useAuth } from '@/commons/auth';
 import CompletedHotelCard from "../components/CompletedHotelCard";
 
 import getListCompletedHotelOrderDataBinding from '../services/getListCompletedHotelOrderDataBinding'
-import CompletedFlightCard from "../components/CompletedFlightCard";
 
-import getListCompletedFlightOrderDataBinding from '../services/getListCompletedFlightOrderDataBinding'
 import CompletedEventCard from "../components/CompletedEventCard";
 
 import getListCompletedEventOrderDataBinding from '../services/getListCompletedEventOrderDataBinding'
@@ -25,7 +23,6 @@ const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
 	listRowCompletedHotel: false,
-	listRowCompletedFlight: false,
 	listRowCompletedEvent: false,
 
 	});
@@ -45,24 +42,6 @@ const [listCompletedHotelOrderDataBinding, setListCompletedHotelOrderDataBinding
 				setListCompletedHotelOrderDataBinding(listCompletedHotelOrderDataBinding.data)
 			} finally {
 				setIsLoading(prev => ({...prev, listRowCompletedHotel: false}))
-			}
-		}
-		fetchData()
-  	}, [])
-const [listCompletedFlightOrderDataBinding, setListCompletedFlightOrderDataBinding] = useState()
-	
-	
-	
-	useEffect(() => {
-		
-
-		const fetchData = async () => {
-			try {
-				setIsLoading(prev => ({...prev, listRowCompletedFlight: true}))
-				const { data: listCompletedFlightOrderDataBinding } = await getListCompletedFlightOrderDataBinding()
-				setListCompletedFlightOrderDataBinding(listCompletedFlightOrderDataBinding.data)
-			} finally {
-				setIsLoading(prev => ({...prev, listRowCompletedFlight: false}))
 			}
 		}
 		fetchData()
@@ -106,17 +85,6 @@ return (
 >
 	<CompletedHotelCard
 		listCompletedHotelOrderDataBinding={listCompletedHotelOrderDataBinding}
-		
-  	/>
-</Layouts.ListContainerCardLayout>
-<Layouts.ListContainerCardLayout
-	title={"ListRow CompletedFlight"}
-	singularName={"CompletedFlight"}
-	items={[listCompletedFlightOrderDataBinding]}
-	isLoading={isLoading.listRowCompletedFlight}
->
-	<CompletedFlightCard
-		listCompletedFlightOrderDataBinding={listCompletedFlightOrderDataBinding}
 		
   	/>
 </Layouts.ListContainerCardLayout>
