@@ -1,0 +1,46 @@
+Blog
+	tes1 Blog Page
+	tes1 Add Blog Page
+	tes1 Detail Blog Page
+	tes1 Update Blog Page
+
+
+/*
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+

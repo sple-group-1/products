@@ -15,84 +15,112 @@ import UpdateRoomOptionPage from './containers/UpdateRoomOptionPage'
 import ListRoomOptionAvailabilityPage from './containers/ListRoomOptionAvailabilityPage'
 import AddRoomOptionAvailabilityPage from './containers/AddRoomOptionAvailabilityPage'
 import UpdateRoomOptionAvailability from './containers/UpdateRoomOptionAvailability'
+import RequireAuth from '@/commons/auth/RequireAuth';
 
 const bookingRoutes = [
-{ 
-	path: "/hotel/search",
-	element: <SearchHotelFormPage />,
-}
+	{
+		path: "/hotel/search",
+		element: <SearchHotelFormPage />,
+	}
 
-	
-,
-{ 
-	path: "/hotel",
-	element: <ListHotelPage />,
-}
 
-	
-,
-{ 
-	path: "/admin/hotel/add",
-	element: <AddHotelPage />,
-}
+	,
+	{
+		path: "/hotel",
+		element: <ListHotelPage />,
+	}
 
-	
-,
-{ 
-	path: "/admin/hotel/:id/room-option/add",
-	element: <AddRoomOptionPage />,
-}
 
-	
-,
-{ 
-	path: "/admin/hotel/:id/update",
-	element: <UpdateHotelPage />,
-}
+	,
+	{
+		path: "/admin/hotel/add",
+		element:
+			<RequireAuth permissionNeeded="administrator">
+				<AddHotelPage />
+			</RequireAuth>
+		,
+	}
 
-	
-,
-{ 
-	path: "/admin/hotel/:hotelId/room-option/:roomId",
-	element: <UpdateRoomOptionPage />,
-}
 
-	
-,
-{ 
-	path: "/admin/hotel/:hotelId/room-option/:roomId/availability",
-	element: <ListRoomOptionAvailabilityPage />,
-}
+	,
+	{
+		path: "/admin/hotel/:id/room-option/add",
+		element:
+			<RequireAuth permissionNeeded="administrator">
+				<AddRoomOptionPage />
+			</RequireAuth>,
+	}
 
-	
-,
-{ 
-	path: "/admin/hotel/:hotelId/room-option/:roomId/availability/add",
-	element: <AddRoomOptionAvailabilityPage />,
-}
 
-	
-,
-{ 
-	path: "/admin/hotel/:hotelId/room-option/:roomId/availability/:id",
-	element: <UpdateRoomOptionAvailability />,
-}
+	,
+	{
+		path: "/admin/hotel/:id/update",
+		element:
+			<RequireAuth permissionNeeded="administrator">
+				<UpdateHotelPage />
+			</RequireAuth>
+		,
+	}
 
-	
-,
-{ 
-	path: "/hotel/:id",
-	element: <DetailHotelPage />,
-}
 
-	
-,
-{ 
-	path: "/hotel/:id/room/:roomId/book",
-	element: <HotelConfimationPage />,
-}
+	,
+	{
+		path: "/admin/hotel/:hotelId/room-option/:roomId",
+		element:
+			<RequireAuth permissionNeeded="administrator">
+				<UpdateRoomOptionPage />
+			</RequireAuth>
+		,
+	}
 
-	
+
+	,
+	{
+		path: "/admin/hotel/:hotelId/room-option/:roomId/availability",
+		element:
+			<RequireAuth permissionNeeded="administrator">
+				<ListRoomOptionAvailabilityPage />
+			</RequireAuth>
+		,
+	}
+
+
+	,
+	{
+		path: "/admin/hotel/:hotelId/room-option/:roomId/availability/add",
+		element:
+			<RequireAuth permissionNeeded="administrator">
+				<AddRoomOptionAvailabilityPage />
+			</RequireAuth>
+		,
+	}
+
+
+	,
+	{
+		path: "/admin/hotel/:hotelId/room-option/:roomId/availability/:id",
+		element:
+			<RequireAuth permissionNeeded="administrator">
+				<UpdateRoomOptionAvailability />
+			</RequireAuth>
+		,
+	}
+
+
+	,
+	{
+		path: "/hotel/:id",
+		element: <DetailHotelPage />,
+	}
+
+
+	,
+	{
+		path: "/hotel/:id/room/:roomId/book",
+		element: <HotelConfimationPage />,
+	}
+
+
 
 ]
 
