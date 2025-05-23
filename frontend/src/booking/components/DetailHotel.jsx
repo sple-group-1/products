@@ -1,7 +1,7 @@
 /*
-	Generated on 23/05/2025 by UI Generator PRICES-IDE
-	https://amanah.cs.ui.ac.id/research/ifml-regen
-	version 3.9.0
+  Generated on 23/05/2025 by UI Generator PRICES-IDE
+  https://amanah.cs.ui.ac.id/research/ifml-regen
+  version 3.9.0
 */
 import React, { useContext } from 'react';
 import { useNavigate, Link } from "react-router";
@@ -16,27 +16,27 @@ import * as Layouts from "@/commons/layouts";
 
 
 const DetailHotel = ({ data }) => {
-    const { checkPermission } = useAuth();
-    const navigate = useNavigate();
-    const updateHotel = async () => {
-      navigate(
-        '/admin/hotel/:id/update?'
-      );
-    };
-    
-    
-  
-    const confirmDeleteHotel = async () => {
-      await deleteHotel({
-      });
-      navigate('/hotel');
-    };
-    const confirmDeleteRoomOption = async () => {
-      await deleteRoomOption({
-      });
-      navigate('/hotel/:id');
-    };
-  
+  const { checkPermission } = useAuth();
+  const navigate = useNavigate();
+  const updateHotel = async () => {
+    navigate(
+      '/admin/hotel/:id/update?'
+    );
+  };
+
+
+
+  const confirmDeleteHotel = async () => {
+    await deleteHotel({
+    });
+    navigate('/hotel');
+  };
+  const confirmDeleteRoomOption = async () => {
+    await deleteRoomOption({
+    });
+    navigate('/hotel/:id');
+  };
+
   return (
     <Layouts.DetailComponentLayout
       item={data}
@@ -68,27 +68,30 @@ const DetailHotel = ({ data }) => {
           label: "Facilities",
           featureName: "facilities",
         }
-        
+
       ]}
-      itemsEvents={[
+      itemsEvents={
+        [
+          checkPermission("UpdateHotel") ? (
             <Button
               variant="secondary"
               onClick={() => updateHotel()}
             >
               Update Hotel
             </Button>
-        ,
+          ) : null,
+          checkPermission("DeleteHotel") ? (
             <Button
-          variant="secondary"
-          onClick={() => deleteHotel()}
-        >
-          Delete Hotel
-        </Button>
-        
-      ]}
-      itemsModals={[
-        
-      ]}
+              variant="secondary"
+              onClick={() => deleteHotel()}
+            >
+              Delete Hotel
+            </Button>
+          ) : null
+        ]
+      }
+      itemsModals={
+        []}
     />
   );
 };

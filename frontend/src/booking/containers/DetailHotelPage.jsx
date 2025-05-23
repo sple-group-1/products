@@ -51,7 +51,7 @@ const DetailHotelPage = props => {
 		const fetchData = async () => {
 			try {
 				setIsLoading(prev => ({ ...prev, listRoomOptions: true }))
-				const { data: hotelRoomOptionListDataBinding } = await getHotelRoomOptionListDataBinding({hotelId: id})
+				const { data: hotelRoomOptionListDataBinding } = await getHotelRoomOptionListDataBinding({ hotelId: id })
 				setHotelRoomOptionListDataBinding(hotelRoomOptionListDataBinding.data)
 			} finally {
 				setIsLoading(prev => ({ ...prev, listRoomOptions: false }))
@@ -69,20 +69,21 @@ const DetailHotelPage = props => {
 			buttons={
 				<>
 					<Layouts.ViewContainerButtonLayout>
-						<Link to={`/review/:Id
-			  	`}>
+						<Link to={`/review/:Id`}>
 							<Button className="p-2 w-full" variant="primary">
 								Review Page
 							</Button>
 						</Link>
 
 
-						<Link to={`/admin/hotel/${id}/room-option/add
-			  	`}>
-							<Button className="p-2 w-full" variant="primary">
-								Add Room Option
-							</Button>
-						</Link>
+						{
+							checkPermission("CreateRoomOption") &&
+							<Link to={`/admin/hotel/${id}/room-option/add`}>
+								<Button className="p-2 w-full" variant="primary">
+									Add Room Option
+								</Button>
+							</Link>
+						}
 
 
 

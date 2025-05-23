@@ -38,7 +38,7 @@ const RoomOptionCard = ({ hotelRoomOptionListDataBinding }) => {
         }
       ]}
       itemsEvents={(roomItem) => [
-        <Link
+        checkPermission("UpdateRoomOption") ? (<Link Link
           to={`/admin/hotel/${roomItem.bookingItemId}/room-option/${roomItem.id}/`}
           key={`update-${roomItem.id}`}
         >
@@ -48,9 +48,10 @@ const RoomOptionCard = ({ hotelRoomOptionListDataBinding }) => {
           >
             Update Room Option
           </Button>
-        </Link>,
+        </Link>) : null
+        ,
 
-        <Link
+        checkPermission("DeleteRoomOption") ? (<Link
           to=''
           key={`delete-${roomItem.id}`}
         >
@@ -60,7 +61,7 @@ const RoomOptionCard = ({ hotelRoomOptionListDataBinding }) => {
           >
             Delete Room Option
           </Button>
-        </Link>,
+        </Link>) : null,
 
         <Link
           to={`/hotel/${roomItem.bookingItemId}/room/${roomItem.id}/book?start_date=${start_date}&end_date=${end_date}&room_count=${room_count}`}

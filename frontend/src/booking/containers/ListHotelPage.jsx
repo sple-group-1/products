@@ -56,12 +56,14 @@ const ListHotelPage = props => {
 						</Link>
 
 
-						<Link to={`/admin/hotel/add
-			  	`}>
-							<Button className="p-2" variant="primary">
-								Add Hotel
-							</Button>
-						</Link>
+						{
+							checkPermission("CreateHotel") &&
+							<Link to={`/admin/hotel/add`}>
+								<Button className="p-2" variant="primary">
+									Add Hotel
+								</Button>
+							</Link>
+						}
 
 
 
