@@ -45,7 +45,7 @@ export default menus;
 addMenu({
 	route: '/order',
     label: 'Order',
-    permission: '',
+    permission: 'ReadOrder',
 	subMenus: []
 })
 
@@ -56,9 +56,10 @@ addMenu({
 	subMenus: []
 })
 
+
 addSubMenu('Booking', {
 	route: '/event',
 	label: 'Booking Event',
-    permission: '',
+    permission: 'ReadEvent',
 	
 })
