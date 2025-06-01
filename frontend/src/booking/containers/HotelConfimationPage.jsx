@@ -88,7 +88,7 @@ const HotelConfimationPage = props => {
 
 			// Prepare payload for the API
 			const payload = {
-				quantity: parseInt(room_count, 10),
+				quantity: room_count,
 				startDate: start_date,
 				endDate: end_date,
 				bookingOptionId: roomId
@@ -99,7 +99,7 @@ const HotelConfimationPage = props => {
 
 			notifySuccess('Checkout successful!');
 
-			navigate('/orders/history');
+			navigate('/order');
 
 		} catch (error) {
 			console.error('Checkout error:', error);

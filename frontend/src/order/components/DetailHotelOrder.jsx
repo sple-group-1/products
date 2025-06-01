@@ -1,5 +1,5 @@
 /*
-	Generated on 23/05/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -23,6 +23,13 @@ const DetailHotelOrder = ({ data }) => {
       item={data}
       itemsAttrs={[
         {
+          id: "hotelImage",
+          condition: "",
+          label: "Gambar",
+          featureName: "bookingOptionHotelImageUrl",
+        }
+        ,
+        {
           id: "orderCreatedAt",
           condition: "",
           label: "Order Created At",
@@ -33,49 +40,49 @@ const DetailHotelOrder = ({ data }) => {
           id: "hotelName",
           condition: "",
           label: "Hotel Name",
-          featureName: "title",
+          featureName: "bookingOptionHotelTitle",
         }
         ,
         {
           id: "location",
           condition: "",
           label: "Location",
-          featureName: "location",
+          featureName: "bookingOptionHotelLocation",
         }
         ,
         {
           id: "roomType",
           condition: "",
           label: "Room Type",
-          featureName: "name",
+          featureName: "bookingOptionRoomType",
         }
         ,
         {
           id: "check-InDate",
           condition: "",
           label: "Check-In Date",
-          featureName: "createdAt",
+          featureName: "startDate",
         }
         ,
         {
           id: "check-OutDate",
           condition: "",
           label: "Check-Out Date",
-          featureName: "createdAt",
+          featureName: "endDate",
         }
         ,
         {
           id: "roomQuantity",
           condition: "",
           label: "Room Quantity",
-          featureName: "amount",
+          featureName: "quantity",
         }
         ,
         {
           id: "totalPayment",
           condition: "",
           label: "Total Payment",
-          featureName: "amount",
+          featureName: "totalPrice",
         }
         
       ]}

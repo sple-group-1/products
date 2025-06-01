@@ -1,5 +1,5 @@
 /*
-	Generated on 23/05/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -27,7 +27,7 @@ const UpcomingHotelCard = ({ listUpcomingHotelOrderDataBinding,
             id: "hotelName",
             condition: "",
             label: "Hotel Name",
-  		  featureName: "title",
+  		  featureName: "bookingOptionHotelTitle",
             editable: false
           }
   ,
