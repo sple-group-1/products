@@ -51,8 +51,8 @@ const FormConfirmationOrderForm = ({
 	  
     })
     .then(({ data: { data } }) => {
-	navigate(`/order`)
-	notifySuccess(`Save Order berhasil!`);
+	navigate(`/cart`)
+	notifySuccess(`Save CartItem berhasil!`);
 
     })
     .catch((error) => {
@@ -109,7 +109,7 @@ const FormConfirmationOrderForm = ({
 		  ]}
 	
 		  itemsEvents={[
-				<Button key="Place Order" type="submit" variant="primary">Place Order</Button>
+				<Button key="Place Order" type="submit" variant="primary">Add To Cart</Button>
 	    ]}
 	  />
 	    

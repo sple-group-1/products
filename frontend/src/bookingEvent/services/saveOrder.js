@@ -9,7 +9,7 @@ const saveOrder = (data = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	
-	return axios.post(`${environment.rootApi}/call/order/save`, body,
+	return axios.post(`${environment.rootApi}/call/cartitem`, body,
 	{
 		params: { token },
 		
