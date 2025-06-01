@@ -27,8 +27,14 @@ import cleanFormData from "@/commons/utils/cleanFormData";
 
 import { notifyError, notifySuccess } from "@/commons/utils/toaster";
 import * as Layouts from "@/commons/layouts";
+import { formatDate } from "../utils/formatDate";
 
 const FormSearchHotelForm = ({ }) => {
+
+	const defaultStartDate = new Date();
+	const defaultEndDate = new Date(defaultStartDate);
+	defaultEndDate.setDate(defaultStartDate.getDate() + 1);
+
 	const {
 		control,
 		handleSubmit,
@@ -36,9 +42,9 @@ const FormSearchHotelForm = ({ }) => {
 	} = useForm({
 		defaultValues: {
 			keyword: "",
-			startDate: "",
-			endDate: "",
-			roomCount: ""
+			startDate: formatDate(defaultStartDate),
+			endDate: formatDate(defaultEndDate),
+			roomCount: "1"
 		}
 	});
 
@@ -49,13 +55,13 @@ const FormSearchHotelForm = ({ }) => {
 
 	const submit = (data) => {
 		const cleanData = cleanFormData(data);
-		navigate(`/hotel?keyword=${data.keyword || ''}&start_date=${data.startDate || ''}&end_date=${data.endDate || ''}&room_count=${data.roomCount || ''}`);
+		navigate(`/hotel?keyword=${cleanData.keyword || ''}&start_date=${cleanData.startDate || ''}&end_date=${cleanData.endDate || ''}&room_count=${cleanData.roomCount || ''}`);
 	}
 
 	return (
 		<div>
 			<Layouts.FormComponentLayout
-				title="Search Hotel Form"
+				title="Cari Hotel yang Cocok Buat Kamu"
 				onSubmit={handleSubmit(submit)}
 				vas={[]}
 				formFields={[
@@ -65,8 +71,8 @@ const FormSearchHotelForm = ({ }) => {
 						control={control}
 						render={({ field, fieldState }) => (
 							<InputField
-								label="Keyword"
-								placeholder="Masukkan keyword"
+								label="Kota, Nama Hotel, atau Alamat"
+								placeholder="Masukkan kota, nama hotel, atau alamat"
 								fieldState={fieldState}
 								{...field}
 								isRequired={false}
@@ -84,7 +90,7 @@ const FormSearchHotelForm = ({ }) => {
 								type="date"
 								fieldState={fieldState}
 								{...field}
-								isRequired={false}
+								isRequired={true}
 							/>
 						)}
 					/>,
@@ -99,7 +105,7 @@ const FormSearchHotelForm = ({ }) => {
 								type="date"
 								fieldState={fieldState}
 								{...field}
-								isRequired={false}
+								isRequired={true}
 							/>
 						)}
 					/>,
@@ -114,7 +120,7 @@ const FormSearchHotelForm = ({ }) => {
 								type="number"
 								fieldState={fieldState}
 								{...field}
-								isRequired={false}
+								isRequired={true}
 							/>
 						)}
 					/>,
