@@ -3,14 +3,13 @@
   https://amanah.cs.ui.ac.id/research/ifml-regen
   version 3.9.0
 */
-import React, { useContext } from 'react';
-import { useNavigate, Link } from "react-router";
+import React from 'react';
+import { useNavigate } from "react-router";
 
 import { useAuth } from '@/commons/auth';
-import { Button, Detail, VisualizationAttr, Modal, Spinner } from '@/commons/components';
+import { Button, Modal } from '@/commons/components';
 
 import deleteHotel from '../services/deleteHotel';
-import deleteRoomOption from '../services/deleteRoomOption';
 
 import * as Layouts from "@/commons/layouts";
 
@@ -36,11 +35,6 @@ const DetailHotel = ({ data }) => {
     navigate('/hotel');
   };
 
-  const confirmDeleteRoomOption = async () => {
-    await deleteRoomOption({
-    });
-    navigate('/hotel/:id');
-  };
 
   return (
     <Layouts.DetailComponentLayout

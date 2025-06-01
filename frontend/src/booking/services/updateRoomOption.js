@@ -8,15 +8,16 @@ const updateRoomOption = (data = {}) => {
 
 	const { getToken } = tokenManager();
 	const token = getToken();
-	
-	return axios.update(`${environment.rootApi}/call/roomoption/update`, body,
-	{
-		params: { token },
-		
-		headers: {
-			'Authorization': token,
-			
-		}
-	})} 
+
+	return axios.put(`${environment.rootApi}/call/roomoption/update`, body,
+		{
+			params: { token },
+
+			headers: {
+				'Authorization': token,
+
+			}
+		})
+}
 
 export default updateRoomOption
