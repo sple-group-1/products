@@ -52,14 +52,14 @@ addMenu({
 addMenu({
 	route: '/order',
     label: 'Order',
-    permission: '',
+    permission: 'ReadOrder',
 	subMenus: []
 })
 
 addMenu({
 	route: '/cart',
     label: 'Cart',
-    permission: '',
+    permission: 'ReadCartItem',
 	subMenus: []
 })
 
@@ -80,6 +80,6 @@ addSubMenu('Booking', {
 addMenu({
 	route: '/wishlist/collections',
     label: 'Wishlist',
-    permission: '',
+    permission: 'ReadWishlist',
 	subMenus: []
 })
