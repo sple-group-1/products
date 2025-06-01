@@ -12,10 +12,11 @@ import { HeaderContext } from "@/commons/components"
 import { useNavigate } from "react-router";
 import { useAuth } from '@/commons/auth';
 import HotelCard from "../components/HotelCard";
+import { formatToIDR } from '../utils/formatToIDR';
 
 import getListHotelDataBinding from '../services/getListHotelDataBinding'
 const ListHotelPage = props => {
-	const { keyword, start_date, end_date, room_count  } = useParams()
+	const { keyword, start_date, end_date, room_count } = useParams()
 	const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
@@ -31,8 +32,9 @@ const ListHotelPage = props => {
 		const fetchData = async () => {
 			try {
 				setIsLoading(prev => ({ ...prev, listRowHotel: true }))
-				const { data: listHotelDataBinding } = await getListHotelDataBinding({keyword, start_date, end_date, room_count})
-				setListHotelDataBinding(listHotelDataBinding.data)
+				const { data: listHotelDataBinding } = await getListHotelDataBinding({ keyword, start_date, end_date, room_count })
+				const listHotel = listHotelDataBinding.data.map(hotel => ({ ...hotel, startPrice: formatToIDR(hotel.startPrice) }))
+				setListHotelDataBinding(listHotel)
 			} finally {
 				setIsLoading(prev => ({ ...prev, listRowHotel: false }))
 			}

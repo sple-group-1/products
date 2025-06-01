@@ -16,6 +16,7 @@ import getDetailHotelDataBinding from '../services/getDetailHotelDataBinding'
 
 import getHotelRoomOptionListDataBinding from '../services/getHotelRoomOptionListDataBinding'
 import RoomOptionCard from '../components/RoomOptionCard';
+import { formatToIDR } from '../utils/formatToIDR';
 const DetailHotelPage = props => {
 	const { id } = useParams()
 	const { checkPermission } = useAuth();
@@ -52,7 +53,11 @@ const DetailHotelPage = props => {
 			try {
 				setIsLoading(prev => ({ ...prev, listRoomOptions: true }))
 				const { data: hotelRoomOptionListDataBinding } = await getHotelRoomOptionListDataBinding({ hotelId: id })
-				setHotelRoomOptionListDataBinding(hotelRoomOptionListDataBinding.data)
+				const roomOptions = hotelRoomOptionListDataBinding.data.map(room => ({
+					...room,
+					price: formatToIDR(room.price),
+				}))
+				setHotelRoomOptionListDataBinding(roomOptions)
 			} finally {
 				setIsLoading(prev => ({ ...prev, listRoomOptions: false }))
 			}

@@ -18,6 +18,7 @@ import getDetailRoomBookingDataBinding from '../services/getDetailRoomBookingDat
 import checkout from '../services/checkout'
 import DetailPayment from '../components/DetailPayment'
 import getBookingFeeReviewDataBinding from '../services/getBookingFeeReviewDataBinding';
+import { formatToIDR } from '../utils/formatToIDR';
 
 const HotelConfimationPage = props => {
 	const { end_date, room_count, id, roomId, start_date } = useParams();
@@ -55,7 +56,8 @@ const HotelConfimationPage = props => {
 			try {
 				setIsLoading(prev => ({ ...prev, detailHotelRoomBooking: true }))
 				const { data: detailRoomBookingDataBinding } = await getDetailRoomBookingDataBinding({ id: roomId })
-				setDetailRoomBookingDataBinding(detailRoomBookingDataBinding.data)
+				const detailRoom = { ...detailRoomBookingDataBinding.data, price: formatToIDR(detailRoomBookingDataBinding.data.price) };
+				setDetailRoomBookingDataBinding(detailRoom)
 			} finally {
 				setIsLoading(prev => ({ ...prev, detailHotelRoomBooking: false }))
 			}
@@ -68,8 +70,9 @@ const HotelConfimationPage = props => {
 		const fetchData = async () => {
 			try {
 				setIsLoading(prev => ({ ...prev, detailPayment: true }))
-				const { data: bookingFeeReview } = await getBookingFeeReviewDataBinding({ roomId, start_date, end_date, room_count })
-				setCountAmountDataBinding(bookingFeeReview.data)
+				const { data: bookingFeeReviewDataBinding } = await getBookingFeeReviewDataBinding({ roomId, start_date, end_date, room_count })
+				const bookingFeeReview = { ...bookingFeeReviewDataBinding.data, total_price: formatToIDR(bookingFeeReviewDataBinding.data.total_price) };
+				setCountAmountDataBinding(bookingFeeReview)
 			} finally {
 				setIsLoading(prev => ({ ...prev, detailPayment: false }))
 			}

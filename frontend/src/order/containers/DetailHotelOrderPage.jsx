@@ -12,6 +12,7 @@ import { HeaderContext } from "@/commons/components"
 
 import DetailHotelOrder from '../components/DetailHotelOrder'
 import getDetailHotelOrderDataBinding from '../services/getDetailHotelOrderDataBinding'
+import { formatToIDR } from '@/booking/utils/formatToIDR';
 const DetailHotelOrderPage = props => {
 const { orderId } = useParams()
 
@@ -27,7 +28,8 @@ useEffect(() => {
 		try {
 			setIsLoading(prev => ({...prev, detailHotelOrder: true}))
 			const { data: detailHotelOrderDataBinding } = await getDetailHotelOrderDataBinding({ orderId })
-			setDetailHotelOrderDataBinding(detailHotelOrderDataBinding.data)
+			const detailHotel = {...detailHotelOrderDataBinding.data, totalPrice: formatToIDR(detailHotelOrderDataBinding.data.totalPrice)}
+			setDetailHotelOrderDataBinding(detailHotel)
 		} finally {
 			setIsLoading(prev => ({...prev, detailHotelOrder: false}))
 		}
