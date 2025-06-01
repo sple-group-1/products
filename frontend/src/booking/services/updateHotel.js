@@ -9,7 +9,7 @@ const updateHotel = (data = {}) => {
 	const { getToken } = tokenManager();
 	const token = getToken();
 	
-	return axios.update(`${environment.rootApi}/call/hotel/update`, body,
+	return axios.put(`${environment.rootApi}/call/hotel/update`, body,
 	{
 		params: { token },
 		

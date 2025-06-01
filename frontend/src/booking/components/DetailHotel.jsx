@@ -18,19 +18,23 @@ import * as Layouts from "@/commons/layouts";
 const DetailHotel = ({ data }) => {
   const { checkPermission } = useAuth();
   const navigate = useNavigate();
+
   const updateHotel = async () => {
     navigate(
-      '/admin/hotel/:id/update?'
+      `/admin/hotel/${data.id}/update`
     );
   };
 
-
+  const [showModal, setShowModal] = React.useState({
+    deleteHotel: false,
+  });
 
   const confirmDeleteHotel = async () => {
     await deleteHotel({
     });
     navigate('/hotel');
   };
+
   const confirmDeleteRoomOption = async () => {
     await deleteRoomOption({
     });
@@ -83,7 +87,7 @@ const DetailHotel = ({ data }) => {
           checkPermission("DeleteHotel") ? (
             <Button
               variant="secondary"
-              onClick={() => deleteHotel()}
+              onClick={() => setShowModal({ ...showModal, deleteHotel: true })}
             >
               Delete Hotel
             </Button>
@@ -91,7 +95,17 @@ const DetailHotel = ({ data }) => {
         ]
       }
       itemsModals={
-        []}
+        [
+          <Modal
+            key='delete-hotel-modal'
+            isShow={showModal.deleteHotel}
+            title={"Delete Hotel Confirmation"}
+            text={"Are you sure you want to delete this hotel?"}
+          >
+            
+          </Modal>
+        ]
+      }
     />
   );
 };
