@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -10,11 +10,9 @@ import { Link } from "react-router";
 import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useSearchParams } from "react-router";
-import { useAuth } from '@/commons/auth';
 import FormAddPackageForm from '../components/FormAddPackageForm'
 const AddPackageOptionPage = props => {
 const { eventId } = useParams()
-	const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
 	addPackageForm: false,
@@ -46,8 +44,7 @@ return (
 			</>
 		}
 	>
-{ checkPermission("CreatePackage") && ( 
-	<Layouts.FormContainerLayout
+<Layouts.FormContainerLayout
 		singularName={"Package"}
 		
 	>
@@ -55,8 +52,6 @@ return (
 			{...props}
 		/>
 	</Layouts.FormContainerLayout>
-
-)}
 
 	</Layouts.ViewContainerLayout>
   )

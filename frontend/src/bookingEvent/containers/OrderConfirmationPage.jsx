@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -16,15 +16,15 @@ import PackageDetail from '../components/PackageDetail'
 import getPackageDataDetail from '../services/getPackageDataDetail'
 import FormConfirmationOrderForm from '../components/FormConfirmationOrderForm'
 const OrderConfirmationPage = props => {
-const { eventId, packageId } = useParams()
-
-	const [isLoading, setIsLoading] = useState({
+const [isLoading, setIsLoading] = useState({
 	eventDetail: false,
 	packageDetail: false,
 	confirmationOrderForm: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
+    const {eventId} = useParams()
+    const {packageId} = useParams()
 
 const [eventDataDetail, setEventDataDetail] = useState()
 useEffect(() => {

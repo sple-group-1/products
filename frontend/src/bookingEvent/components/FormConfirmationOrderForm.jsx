@@ -1,11 +1,11 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate, useSearchParams } from "react-router";
+import { useNavigate, useSearchParams, useParams } from "react-router";
 import {
   Button,
   Form,
@@ -38,7 +38,7 @@ const FormConfirmationOrderForm = ({
     handleSubmit,
   } = useForm()
   
-  
+	const {packageId} = useParams()
   
   
   const navigate = useNavigate()
@@ -47,9 +47,13 @@ const FormConfirmationOrderForm = ({
     const cleanData = cleanFormData(data)
     saveOrder({
       ...cleanData,
+	  bookingOptionId:packageId
+	  
     })
     .then(({ data: { data } }) => {
-  	notifySuccess(`Save Order berhasil!`);
+	navigate(`/order`)
+	notifySuccess(`Save Order berhasil!`);
+
     })
     .catch((error) => {
       console.error(error);
@@ -75,8 +79,8 @@ const FormConfirmationOrderForm = ({
 		        control={control}
 		        render={({ field, fieldState }) => (
 				  <InputField
-		            label="Start Date"
-		            placeholder="Masukkan start date"
+		            label="Event Date"
+		            placeholder="Masukkan event date"
 					type="date"
 		            fieldState={fieldState}
 					{...field}
@@ -92,9 +96,8 @@ const FormConfirmationOrderForm = ({
 		        control={control}
 		        render={({ field, fieldState }) => (
 				  <InputField
-		            label="Quantity"
-		            placeholder="Masukkan quantity"
-					type="number"
+		            label="Ticket Quantity"
+		            placeholder="Masukkan ticket quantity"
 		            fieldState={fieldState}
 					{...field}
 					isRequired={false}

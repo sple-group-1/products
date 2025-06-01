@@ -1,11 +1,11 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate, useSearchParams } from "react-router";
+import { useNavigate, useParams, useSearchParams } from "react-router";
 import {
   Button,
   Form,
@@ -40,13 +40,14 @@ const FormAddPackageForm = ({
   
   
   
-  
+  const {eventId} = useParams()
   const navigate = useNavigate()
   
   const addPackage = (data) => {
     const cleanData = cleanFormData(data)
     savePackage({
       ...cleanData,
+	  eventId: eventId,
     })
     .then(({ data: { data } }) => {
       navigate(`/event/${eventId}`)
@@ -71,8 +72,8 @@ const FormAddPackageForm = ({
 		  formFields={[
 			  
 			  <Controller
-			    key=""
-		        name=""
+			    key="packageName"
+		        name="packageName"
 		        control={control}
 		        render={({ field, fieldState }) => (
 				  <InputField
@@ -87,14 +88,13 @@ const FormAddPackageForm = ({
 	,
 			  
 			  <Controller
-			    key=""
-		        name=""
+			    key="price"
+		        name="price"
 		        control={control}
 		        render={({ field, fieldState }) => (
 				  <InputField
 		            label="Price"
 		            placeholder="Masukkan price"
-					type="number"
 		            fieldState={fieldState}
 					{...field}
 					isRequired={false}

@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -10,21 +10,19 @@ import { Link } from "react-router";
 import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useSearchParams } from "react-router";
-import { useAuth } from '@/commons/auth';
 import FormUpdatePackageForm from '../components/FormUpdatePackageForm'
 
 import getPackageData from '../services/getPackageData'
 const UpdatePackagePage = props => {
-const { packageId } = useParams()
-	const { checkPermission } = useAuth();
-
-	const [isLoading, setIsLoading] = useState({
+const [isLoading, setIsLoading] = useState({
 	updatePackageForm: false,
 
 	});
 	const { setTitle } = useContext(HeaderContext);
 
 const [packageData, setPackageData] = useState()
+const {packageId} = useParams()
+const {eventId} = useParams()
 
 useEffect(() => {
     const fetch = async () => {
@@ -33,12 +31,10 @@ useEffect(() => {
 
 	    setPackageData(packageDataResponse.data)
 
-
+		console.log(packageDataResponse,"aaa")
 	    setIsLoading(prev => ({...prev, updatePackageForm: false}))
     }
-	if (checkPermission("UpdatePackage")) { 
-		fetch()
-	}
+	fetch()
   }, [])
 
 	
@@ -50,21 +46,20 @@ return (
 		buttons={
 			<>
 			<Layouts.ViewContainerButtonLayout>
-			  	<Link to={`/event/:eventId/package/${packageId}
-			  	`}>
-			  		<Button className="p-2" variant="primary">
-			  		  Back
-			  		</Button>
-			  	</Link>
-			  	
-			  	
+				<Link to={`/event/${eventId}/package/${packageId}
+				`}>
+					<Button className="p-2" variant="primary">
+					  Back
+					</Button>
+				</Link>
+				
+				
 			
 			  </Layouts.ViewContainerButtonLayout>
 			</>
 		}
 	>
-{ checkPermission("UpdatePackage") && ( 
-	<Layouts.FormContainerLayout
+<Layouts.FormContainerLayout
 		singularName={"Package"}
 		isLoading={isLoading.updatePackageForm}
 	>
@@ -77,8 +72,6 @@ return (
 		 /> 
 		</>)  : (<></>)}
 	</Layouts.FormContainerLayout>
-
-)}
 
 	</Layouts.ViewContainerLayout>
   )

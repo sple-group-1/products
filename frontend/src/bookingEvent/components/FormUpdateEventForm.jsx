@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -44,7 +44,7 @@ const FormUpdateEventForm = ({
   
   const navigate = useNavigate()
   
-  const updateEvent = (data) => {
+  const handleUpdateEvent = (data) => {
     const cleanData = cleanFormData(data)
     updateEvent({
       ...cleanData,
@@ -64,7 +64,7 @@ const FormUpdateEventForm = ({
 	<div>
 	  <Layouts.FormComponentLayout
 		  title="Update Event Form" 
-		  onSubmit={handleSubmit(updateEvent)}
+		  onSubmit={handleSubmit(handleUpdateEvent)}
 	
 	    vas={[
 		  ]}

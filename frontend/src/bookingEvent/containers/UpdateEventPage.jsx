@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -10,13 +10,11 @@ import { Link } from "react-router";
 import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useSearchParams } from "react-router";
-import { useAuth } from '@/commons/auth';
 import FormUpdateEventForm from '../components/FormUpdateEventForm'
 
 import getEventData from '../services/getEventData'
 const UpdateEventPage = props => {
-const { eventId } = useParams()
-	const { checkPermission } = useAuth();
+const { eventId, packageId } = useParams()
 
 	const [isLoading, setIsLoading] = useState({
 	updateEventForm: false,
@@ -36,9 +34,7 @@ useEffect(() => {
 
 	    setIsLoading(prev => ({...prev, updateEventForm: false}))
     }
-	if (checkPermission("UpdateEvent")) { 
-		fetch()
-	}
+	fetch()
   }, [])
 
 	
@@ -63,8 +59,7 @@ return (
 			</>
 		}
 	>
-{ checkPermission("UpdateEvent") && ( 
-	<Layouts.FormContainerLayout
+<Layouts.FormContainerLayout
 		singularName={"Event"}
 		isLoading={isLoading.updateEventForm}
 	>
@@ -77,8 +72,6 @@ return (
 		 /> 
 		</>)  : (<></>)}
 	</Layouts.FormContainerLayout>
-
-)}
 
 	</Layouts.ViewContainerLayout>
   )

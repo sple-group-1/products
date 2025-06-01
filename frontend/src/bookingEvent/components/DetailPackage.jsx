@@ -1,10 +1,10 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
 import React, { useContext } from 'react';
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link, useParams } from "react-router";
 
 import { useAuth } from '@/commons/auth';
 import { Button, Detail, VisualizationAttr, Modal, Spinner } from '@/commons/components';
@@ -18,33 +18,29 @@ const DetailPackage = ({ data }) => {
     const { checkPermission } = useAuth();
     const navigate = useNavigate();
     const [showModalDeletePackageConfirmation, setShowModalDeletePackageConfirmation] = React.useState(false); 
-    
+    const {eventId} = useParams()
+    const {packageId} = useParams()
     const updatePackage = async () => {
       navigate(
-        '/event/:eventId/updatepackage?'
+        `/package/${eventId}/update?`
         + `packageId=${data.packageId}`
         
       );
     };
     
-    const order = async () => {
+    const handleOrder = async () => {
       navigate(
-        '/event/:eventId/package/:packageId/placeorder?'
-        + `eventId=${data.eventId}`
-        + '&'
-        + `packageId=${data.packageId}`
+        `/event/${eventId}/package/${packageId}/placeorder`
         
       );
     };
-    
   
-    const deletePackage = async () => {
+    const handleDeletePackage = async () => {
       await deletePackage({
         packageId: data.packageId,
       });
-      navigate('/event/:eventId');
+      navigate(`/event/${eventId}`);
     };
-  
   return (
     <Layouts.DetailComponentLayout
       item={data}
@@ -65,27 +61,27 @@ const DetailPackage = ({ data }) => {
         
       ]}
       itemsEvents={[
-            checkPermission("DeletePackage") &&  (
-              <Button
-                variant="secondary"
-                onClick={() => setShowModalDeletePackageConfirmation(true)}
-              >
-                Delete Package
-              </Button>
-            )
+        checkPermission("DeletePackage") && (
+            <Button
+              variant="danger"
+              onClick={() => setShowModalDeletePackageConfirmation(true)}
+            >
+              Delete Package
+            </Button>
+        )
         ,
-            checkPermission("UpdatePackage") &&  (
-              <Button
-                variant="secondary"
-                onClick={() => updatePackage()}
-              >
-                Update Package
-              </Button>
-            )
+        checkPermission("UpdatePackage") && (
+            <Button
+          variant="secondary"
+          onClick={() => updatePackage()}
+        >
+          Update Package
+        </Button>
+        )
         ,
             <Button
           variant="secondary"
-          onClick={() => order()}
+          onClick={() => handleOrder()}
         >
           Order
         </Button>
@@ -96,10 +92,10 @@ const DetailPackage = ({ data }) => {
            isShow={showModalDeletePackageConfirmation}
            title={"Delete Package Confirmation"}
         >
-           <Link to=''><Button variant="tertiary" onClick={() => setShowModalDeletePackageConfirmation(false)}>Batal</Button></Link>
+           <Link to=''><Button className="w-full mb-2" variant="tertiary" onClick={() => setShowModalDeletePackageConfirmation(false)}>Batal</Button></Link>
           <Button
-            variant="secondary"
-            onClick={() => deletePackage()}
+            variant="danger"
+            onClick={() => handleDeletePackage()}
           >
             Delete Package
           </Button>

@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -52,7 +52,7 @@ const [listPackageDataBinding, setListPackageDataBinding] = useState()
 		const fetchData = async () => {
 			try {
 				setIsLoading(prev => ({...prev, packageOption: true}))
-				const { data: listPackageDataBinding } = await getListPackageDataBinding({ packageId })
+				const { data: listPackageDataBinding } = await getListPackageDataBinding({ eventId })
 				setListPackageDataBinding(listPackageDataBinding.data)
 			} finally {
 				setIsLoading(prev => ({...prev, packageOption: false}))
@@ -77,16 +77,14 @@ return (
 			  		</Button>
 			  	</Link>
 			  	
-			  	
-			  	{checkPermission("CreatePackage") &&  (
-			  	  <Link to={`/event/${eventId}/addpackage
-			  	  `}>
-			  	  	<Button className="p-2 w-full" variant="primary">
-			  	  	  Add Package Option
-			  	  	</Button>
-			  	  </Link>
-			  	  
-			  	)}
+			  	{checkPermission("CreatePackage") && (
+			  	<Link to={`/event/${eventId}/addpackage
+			  	`}>
+			  		<Button className="p-2 w-full" variant="primary">
+			  		  Add Package Option
+			  		</Button>
+			  	</Link>
+				)}
 			  	
 			
 			  </Layouts.ViewContainerButtonLayout>

@@ -28,6 +28,11 @@ const [dataBinding, setDataBinding] = useState()
 	
 	
 	
+const navigate = useNavigate();
+const checkout = async () => {    
+	await checkoutcartitem();
+	navigate('/cart');
+}
 
 	useEffect(() => {
 		
@@ -53,6 +58,7 @@ return (
 		buttons={
 			<>
 			<Layouts.ViewContainerButtonLayout>
+			  	<Button className="mt-2 sm:mt-0" variant="primary" onClick={checkout}>Checkout</Button>
 			  	
 			  	
 			

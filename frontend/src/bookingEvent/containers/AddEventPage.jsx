@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -10,12 +10,9 @@ import { Link } from "react-router";
 import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
 import { useSearchParams } from "react-router";
-import { useAuth } from '@/commons/auth';
 import FormAddEventForm from '../components/FormAddEventForm'
 const AddEventPage = props => {
-const { checkPermission } = useAuth();
-
-	const [isLoading, setIsLoading] = useState({
+const [isLoading, setIsLoading] = useState({
 	addEventForm: false,
 
 	});
@@ -45,8 +42,7 @@ return (
 			</>
 		}
 	>
-{ checkPermission("CreateEvent") && ( 
-	<Layouts.FormContainerLayout
+<Layouts.FormContainerLayout
 		singularName={"Event"}
 		
 	>
@@ -54,8 +50,6 @@ return (
 			{...props}
 		/>
 	</Layouts.FormContainerLayout>
-
-)}
 
 	</Layouts.ViewContainerLayout>
   )

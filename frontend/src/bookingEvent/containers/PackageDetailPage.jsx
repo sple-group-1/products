@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -9,12 +9,12 @@ import * as Layouts from '@/commons/layouts';
 import { Link } from "react-router";
 import { useParams } from "@/commons/hooks/useParams"
 import { HeaderContext } from "@/commons/components"
-import { useAuth } from '@/commons/auth';
+
 import DetailPackage from '../components/DetailPackage'
 import getDetailPackageDataBinding from '../services/getDetailPackageDataBinding'
 const PackageDetailPage = props => {
 const { packageId } = useParams()
-	const { checkPermission } = useAuth();
+const { eventId } = useParams()
 
 	const [isLoading, setIsLoading] = useState({
 	detailPackage: false,
@@ -27,7 +27,7 @@ useEffect(() => {
 	const fetchData = async () => {
 		try {
 			setIsLoading(prev => ({...prev, detailPackage: true}))
-			const { data: detailPackageDataBinding } = await getDetailPackageDataBinding({ packageId, eventId })
+			const { data: detailPackageDataBinding } = await getDetailPackageDataBinding({ packageId })
 			setDetailPackageDataBinding(detailPackageDataBinding.data)
 		} finally {
 			setIsLoading(prev => ({...prev, detailPackage: false}))

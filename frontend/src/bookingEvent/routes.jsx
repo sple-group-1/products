@@ -1,65 +1,64 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
-import RequireAuth from '@/commons/auth/RequireAuth'
-
+import React from 'react';
 import ListEventPage from './containers/ListEventPage'
 import DetailEventPage from './containers/DetailEventPage'
 import PackageDetailPage from './containers/PackageDetailPage'
 import AddEventPage from './containers/AddEventPage'
+import UpdateEventPage from './containers/UpdateEventPage'
 import AddPackageOptionPage from './containers/AddPackageOptionPage'
 import UpdatePackagePage from './containers/UpdatePackagePage'
 import OrderConfirmationPage from './containers/OrderConfirmationPage'
-import UpdateEventPage from './containers/UpdateEventPage'
 
 const bookingEventRoutes = [
 { 
 	path: "/event",
-	element: <RequireAuth permissionNeeded="ReadEvent" ><ListEventPage/></RequireAuth>
+	element: <ListEventPage />,
 }
 
 	
 ,
 { 
 	path: "/event/add",
-	element: <RequireAuth permissionNeeded="CreateEvent" ><AddEventPage/></RequireAuth>
-}
-
-	
-,
-{ 
-	path: "/event/:eventId/addpackage",
-	element: <RequireAuth permissionNeeded="CreatePackage" ><AddPackageOptionPage/></RequireAuth>
-}
-
-	
-,
-{ 
-	path: "/event/:eventId/updatepackage",
-	element: <RequireAuth permissionNeeded="UpdatePackage" ><UpdatePackagePage/></RequireAuth>
+	element: <AddEventPage />,
 }
 
 	
 ,
 { 
 	path: "/event/update",
-	element: <RequireAuth permissionNeeded="UpdateEvent" ><UpdateEventPage/></RequireAuth>
+	element: <UpdateEventPage />,
+}
+
+	
+,
+{ 
+	path: "/event/:eventId/addpackage",
+	element: <AddPackageOptionPage />,
+}
+
+	
+,
+{ 
+	path: "/package/:eventId/update",
+	element: <UpdatePackagePage />,
 }
 
 	
 ,
 { 
 	path: "/event/:eventId",
-	element: <RequireAuth permissionNeeded="ReadEvent" ><DetailEventPage/></RequireAuth>
+	element: <DetailEventPage />,
 }
 
 	
 ,
 { 
 	path: "/event/:eventId/package/:packageId",
-	element: <RequireAuth permissionNeeded="ReadPackage" ><PackageDetailPage/></RequireAuth>
+	element: <PackageDetailPage />,
 }
 
 	

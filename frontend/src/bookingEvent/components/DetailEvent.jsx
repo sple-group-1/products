@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -12,6 +12,7 @@ import { Button, Detail, VisualizationAttr, Modal, Spinner } from '@/commons/com
 import deleteEvent from '../services/deleteEvent';
 
 import * as Layouts from "@/commons/layouts";
+import convertByteArrayToBlobUrl from '@/commons/utils/byteArrayToBlobUrl'
 
 
 const DetailEvent = ({ data }) => {
@@ -26,9 +27,13 @@ const DetailEvent = ({ data }) => {
       );
     };
     
-    
+  data.imageUrls = <img
+  src={convertByteArrayToBlobUrl(data.imageUrls, "image/png")}
+  alt="Preview"
+  className="w-full h-80 object-cover rounded-md border"
+/>
   
-    const deleteEvent = async () => {
+    const handleDeleteEvent = async () => {
       await deleteEvent({
         eventId: data.eventId,
       });
@@ -76,34 +81,34 @@ const DetailEvent = ({ data }) => {
         
       ]}
       itemsEvents={[
-            checkPermission("UpdateEvent") &&  (
-              <Button
-                variant="secondary"
-                onClick={() => edit()}
-              >
-                Edit
-              </Button>
+        checkPermission("UpdateEvent") && (
+            <Button
+              variant="secondary"
+              onClick={() => edit()}
+            >
+              Edit
+            </Button>
             )
         ,
-            checkPermission("DeleteEvent") &&  (
-              <Button
-                variant="secondary"
-                onClick={() => setShowModalDeleteEventConfirmation(true)}
-              >
-                Delete Event
-              </Button>
-            )
-        
+        checkPermission("DeleteEvent") && (
+            <Button
+          variant="danger"
+          onClick={() => setShowModalDeleteEventConfirmation(true)}
+        >
+          Delete Event
+        </Button>
+        )
       ]}
       itemsModals={[
         <Modal
            isShow={showModalDeleteEventConfirmation}
            title={"Delete Event Confirmation"}
         >
-           <Link to=''><Button variant="tertiary" onClick={() => setShowModalDeleteEventConfirmation(false)}>Batal</Button></Link>
+           <Link to=''><Button className="w-full mb-2" variant="tertiary" onClick={() => setShowModalDeleteEventConfirmation(false)}>Batal</Button></Link>
           <Button
-            variant="secondary"
-            onClick={() => deleteEvent()}
+          
+            variant="danger"
+            onClick={() => handleDeleteEvent()}
           >
             Delete Event
           </Button>

@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 18/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -44,13 +44,15 @@ const FormUpdatePackageForm = ({
   
   const navigate = useNavigate()
   
-  const updatePackage = (data) => {
+  const handleUpdatePackage = (data) => {
     const cleanData = cleanFormData(data)
+	console.log(cleanData)
     updatePackage({
       ...cleanData,
+	  eventId : data.eventEventId,
     })
     .then(({ data: { data } }) => {
-     navigate(`/event/${packageData.packageId}/package/:packageId`)
+     navigate(`/event/${data.eventEventId}/package/${data.packageId}`)
   	notifySuccess(`Update Package berhasil!`);
     })
     .catch((error) => {
@@ -64,7 +66,7 @@ const FormUpdatePackageForm = ({
 	<div>
 	  <Layouts.FormComponentLayout
 		  title="Update Package Form" 
-		  onSubmit={handleSubmit(updatePackage)}
+		  onSubmit={handleSubmit(handleUpdatePackage)}
 	
 	    vas={[
 		  ]}
@@ -95,7 +97,6 @@ const FormUpdatePackageForm = ({
 				  <InputField
 		            label="Price"
 		            placeholder="Masukkan price"
-					type="number"
 		            defaultValue={packageData.price}	            fieldState={fieldState}
 					{...field}
 					isRequired={false}
