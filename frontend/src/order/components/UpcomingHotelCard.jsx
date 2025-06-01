@@ -27,7 +27,7 @@ const UpcomingHotelCard = ({ listUpcomingHotelOrderDataBinding,
             id: "hotelName",
             condition: "",
             label: "Hotel Name",
-  		  featureName: "title",
+  		  featureName: "Title",
             editable: false
           }
   ,

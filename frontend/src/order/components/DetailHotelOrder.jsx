@@ -33,49 +33,49 @@ const DetailHotelOrder = ({ data }) => {
           id: "hotelName",
           condition: "",
           label: "Hotel Name",
-          featureName: "title",
+          featureName: "Title",
         }
         ,
         {
           id: "location",
           condition: "",
           label: "Location",
-          featureName: "location",
+          featureName: "Location",
         }
         ,
         {
           id: "roomType",
           condition: "",
           label: "Room Type",
-          featureName: "name",
+          featureName: "bookingOptionRoomType",
         }
         ,
         {
           id: "check-InDate",
           condition: "",
           label: "Check-In Date",
-          featureName: "createdAt",
+          featureName: "startDate",
         }
         ,
         {
           id: "check-OutDate",
           condition: "",
           label: "Check-Out Date",
-          featureName: "createdAt",
+          featureName: "endDate",
         }
         ,
         {
           id: "roomQuantity",
           condition: "",
           label: "Room Quantity",
-          featureName: "amount",
+          featureName: "quantity",
         }
         ,
         {
           id: "totalPayment",
           condition: "",
           label: "Total Payment",
-          featureName: "amount",
+          featureName: "totalPrice",
         }
         
       ]}

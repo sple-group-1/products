@@ -6,7 +6,6 @@
 import React from 'react';
 import OrderPage from './containers/OrderPage'
 import DetailHotelOrderPage from './containers/DetailHotelOrderPage'
-import DetailFlightOrderPage from './containers/DetailFlightOrderPage'
 import DetailEventOrderPage from './containers/DetailEventOrderPage'
 
 const orderRoutes = [
@@ -20,13 +19,6 @@ const orderRoutes = [
 { 
 	path: "/order/hotel/:orderId",
 	element: <DetailHotelOrderPage />,
-}
-
-	
-,
-{ 
-	path: "/order/flight/:orderId",
-	element: <DetailFlightOrderPage />,
 }
 
 	

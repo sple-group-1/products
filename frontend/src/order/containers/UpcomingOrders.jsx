@@ -14,9 +14,6 @@ import { useAuth } from '@/commons/auth';
 import UpcomingHotelCard from "../components/UpcomingHotelCard";
 
 import getListUpcomingHotelOrderDataBinding from '../services/getListUpcomingHotelOrderDataBinding'
-import UpcomingFlightCard from "../components/UpcomingFlightCard";
-
-import getListUpcomingFlightOrderDataBinding from '../services/getListUpcomingFlightOrderDataBinding'
 import UpcomingEventCard from "../components/UpcomingEventCard";
 
 import getListUpcomingEventOrderDataBinding from '../services/getListUpcomingEventOrderDataBinding'
@@ -25,7 +22,6 @@ const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
 	listRowUpcomingHotel: false,
-	listRowUpcomingFlight: false,
 	listRowUpcomingEvent: false,
 
 	});
@@ -45,24 +41,6 @@ const [listUpcomingHotelOrderDataBinding, setListUpcomingHotelOrderDataBinding] 
 				setListUpcomingHotelOrderDataBinding(listUpcomingHotelOrderDataBinding.data)
 			} finally {
 				setIsLoading(prev => ({...prev, listRowUpcomingHotel: false}))
-			}
-		}
-		fetchData()
-  	}, [])
-const [listUpcomingFlightOrderDataBinding, setListUpcomingFlightOrderDataBinding] = useState()
-	
-	
-	
-	useEffect(() => {
-		
-
-		const fetchData = async () => {
-			try {
-				setIsLoading(prev => ({...prev, listRowUpcomingFlight: true}))
-				const { data: listUpcomingFlightOrderDataBinding } = await getListUpcomingFlightOrderDataBinding()
-				setListUpcomingFlightOrderDataBinding(listUpcomingFlightOrderDataBinding.data)
-			} finally {
-				setIsLoading(prev => ({...prev, listRowUpcomingFlight: false}))
 			}
 		}
 		fetchData()
@@ -106,17 +84,6 @@ return (
 >
 	<UpcomingHotelCard
 		listUpcomingHotelOrderDataBinding={listUpcomingHotelOrderDataBinding}
-		
-  	/>
-</Layouts.ListContainerCardLayout>
-<Layouts.ListContainerCardLayout
-	title={"ListRow UpcomingFlight"}
-	singularName={"UpcomingFlight"}
-	items={[listUpcomingFlightOrderDataBinding]}
-	isLoading={isLoading.listRowUpcomingFlight}
->
-	<UpcomingFlightCard
-		listUpcomingFlightOrderDataBinding={listUpcomingFlightOrderDataBinding}
 		
   	/>
 </Layouts.ListContainerCardLayout>
