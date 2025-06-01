@@ -15,6 +15,7 @@ import HotelCard from "../components/HotelCard";
 
 import getListHotelDataBinding from '../services/getListHotelDataBinding'
 const ListHotelPage = props => {
+	const { keyword, start_date, end_date, room_count  } = useParams()
 	const { checkPermission } = useAuth();
 
 	const [isLoading, setIsLoading] = useState({
@@ -30,7 +31,7 @@ const ListHotelPage = props => {
 		const fetchData = async () => {
 			try {
 				setIsLoading(prev => ({ ...prev, listRowHotel: true }))
-				const { data: listHotelDataBinding } = await getListHotelDataBinding()
+				const { data: listHotelDataBinding } = await getListHotelDataBinding({keyword, start_date, end_date, room_count})
 				setListHotelDataBinding(listHotelDataBinding.data)
 			} finally {
 				setIsLoading(prev => ({ ...prev, listRowHotel: false }))

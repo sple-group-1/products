@@ -41,17 +41,17 @@ const DetailHotel = ({ data }) => {
       item={data}
       itemsAttrs={[
         {
+          id: "image",
+          condition: "",
+          label: "Gambar",
+          featureName: "imageUrl",
+        }
+        ,
+        {
           id: "title",
           condition: "",
           label: "Title",
           featureName: "title",
-        }
-        ,
-        {
-          id: "image",
-          condition: "",
-          label: "Image",
-          featureName: "imageUrls",
         }
         ,
         {

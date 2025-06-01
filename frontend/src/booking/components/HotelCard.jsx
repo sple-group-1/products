@@ -35,8 +35,14 @@ const HotelCard = ({ listHotelDataBinding }) => {
   return (
     <Layouts.ListComponentCardLayout
       items={[listHotelDataBinding]}
-      isRow
       itemsAttrs={[
+        {
+          id: "image",
+          condition: "",
+          label: "",
+          featureName: "imageUrl",
+          editable: false
+        },
         {
           id: "title",
           condition: "",
@@ -48,7 +54,7 @@ const HotelCard = ({ listHotelDataBinding }) => {
           id: "startPrice",
           condition: "",
           label: "Start Price",
-          featureName: "price",
+          featureName: "startPrice",
           editable: false
         },
         {
