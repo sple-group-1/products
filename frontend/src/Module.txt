@@ -1,0 +1,151 @@
+Blog
+	tes1 Blog Page
+	tes1 Add Blog Page
+	tes1 Detail Blog Page
+	tes1 Update Blog Page
+
+
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
+
+Booking Event
+	tes1 List Event Page
+	tes1 Detail Event Page
+	tes1 Package Detail Page
+	tes1 Add Event Page
+	tes1 Add Package Option Page
+	tes1 Update Package Page
+	tes1 Order Confirmation Page
+	tes1 Update Event Page
+
+
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+	
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+/*
+	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	https://amanah.cs.ui.ac.id/research/ifml-regen
+	version 3.9.0
+*/
+
+
+
+
