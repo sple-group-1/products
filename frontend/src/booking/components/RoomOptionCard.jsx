@@ -50,6 +50,13 @@ const RoomOptionCard = ({ hotelRoomOptionListDataBinding }) => {
         items={[hotelRoomOptionListDataBinding]}
         itemsAttrs={[
           {
+            id: "imageUrl",
+            condition: "",
+            label: "Gambar",
+            featureName: "imageUrl",
+            editable: false
+          },
+          {
             id: "roomType",
             condition: "",
             label: "Room Type",

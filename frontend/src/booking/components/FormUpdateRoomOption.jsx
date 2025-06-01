@@ -100,6 +100,22 @@ const FormUpdateRoomOption = ({
 						)}
 					/>
 					,
+					<Controller
+						key="imageUrl"
+						name="imageUrl"
+						control={control}
+						render={({ field, fieldState }) => (
+							<InputField
+								label="Gambar"
+								placeholder="Masukkan URL Gambar"
+								defaultValue={roomOptionData.imageUrl}
+								fieldState={fieldState}
+								{...field}
+								isRequired={false}
+							/>
+						)}
+					/>
+					,
 
 				]}
 

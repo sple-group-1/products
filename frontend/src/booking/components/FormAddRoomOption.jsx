@@ -102,6 +102,21 @@ const FormAddRoomOption = ({
 						)}
 					/>
 					,
+					<Controller
+						key="imageUrl"
+						name="imageUrl"
+						control={control}
+						render={({ field, fieldState }) => (
+							<InputField
+								label="Gambar"
+								placeholder="Masukkan URL Gambar"
+								fieldState={fieldState}
+								{...field}
+								isRequired={false}
+							/>
+						)}
+					/>
+					,
 
 				]}
 
