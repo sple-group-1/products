@@ -10,12 +10,6 @@ var selectedFeatures = Array.from(new Set ([
 "Cart",
 
 
-"Booking",
-
-
-"Booking Flight",
-
-
 "Wishlist",
 
 

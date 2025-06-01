@@ -6,6 +6,7 @@ import staticPageRoutes from "@/staticPage/routes";
 import homeRoutes from "@/home/routes";
 import orderRoutes from "@/order/routes";
 import cartRoutes from "@/cart/routes";
+import bookingEventRoutes from "@/bookingEvent/routes";
 import wishlistRoutes from "@/wishlist/routes";
 
 const GlobalRoutes = () => {
@@ -17,6 +18,7 @@ const GlobalRoutes = () => {
 	...homeRoutes, 
 	...orderRoutes, 
 	...cartRoutes, 
+	...bookingEventRoutes, 
 	...wishlistRoutes, 
   ])
   return router

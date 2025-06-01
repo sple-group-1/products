@@ -56,18 +56,11 @@ addMenu({
 	subMenus: []
 })
 
-addSubMenu('Booking', {
-	route: '/hotel',
-	label: 'Booking Hotel',
+addMenu({
+	route: '#',
+    label: 'Booking',
     permission: '',
-	
-})
-
-addSubMenu('Booking', {
-	route: '/flight',
-	label: 'Booking Flight',
-    permission: '',
-	
+	subMenus: []
 })
 
 addSubMenu('Booking', {
