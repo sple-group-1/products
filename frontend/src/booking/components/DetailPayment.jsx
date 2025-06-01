@@ -26,28 +26,35 @@ const DetailPayment = ({ data }) => {
           id: "check-InDate",
           condition: "",
           label: "Check-In Date",
-          featureName: "startDate",
+          featureName: "start_date",
+        }
+        ,
+        {
+          id: "duration-day",
+          condition: "",
+          label: "Duration (day)",
+          featureName: "duration_days",
         }
         ,
         {
           id: "check-OutDate",
           condition: "",
           label: "Check-Out Date",
-          featureName: "endDate",
+          featureName: "end_date",
         }
         ,
         {
           id: "roomQuantity",
           condition: "",
           label: "Room Quantity",
-          featureName: "roomQuantity",
+          featureName: "room_count",
         }
         ,
         {
           id: "totalPayment",
           condition: "",
           label: "Total Payment",
-          featureName: "amount",
+          featureName: "total_price",
         }
         
       ]}

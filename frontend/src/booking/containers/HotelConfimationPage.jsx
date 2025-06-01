@@ -17,6 +17,7 @@ import DetailHotelRoomBooking from '../components/DetailHotelRoomBooking'
 import getDetailRoomBookingDataBinding from '../services/getDetailRoomBookingDataBinding'
 import checkout from '../services/checkout'
 import DetailPayment from '../components/DetailPayment'
+import getBookingFeeReviewDataBinding from '../services/getBookingFeeReviewDataBinding';
 
 const HotelConfimationPage = props => {
 	const { end_date, room_count, id, roomId, start_date } = useParams();
@@ -47,14 +48,7 @@ const HotelConfimationPage = props => {
 		fetchData()
 	}, [])
 
-	const getPaymentBookingData = (price) => {
-		return {
-			startDate: start_date,
-			endDate: end_date,
-			roomQuantity: room_count,
-			amount: price * room_count,
-		}
-	}
+
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -62,11 +56,22 @@ const HotelConfimationPage = props => {
 				setIsLoading(prev => ({ ...prev, detailHotelRoomBooking: true }))
 				const { data: detailRoomBookingDataBinding } = await getDetailRoomBookingDataBinding({ id: roomId })
 				setDetailRoomBookingDataBinding(detailRoomBookingDataBinding.data)
-
-				const price = detailRoomBookingDataBinding.data.price
-				setCountAmountDataBinding({ ...getPaymentBookingData(price) })
 			} finally {
 				setIsLoading(prev => ({ ...prev, detailHotelRoomBooking: false }))
+			}
+		}
+		fetchData()
+	}, [])
+
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				setIsLoading(prev => ({ ...prev, detailPayment: true }))
+				const { data: bookingFeeReview } = await getBookingFeeReviewDataBinding({ roomId, start_date, end_date, room_count })
+				setCountAmountDataBinding(bookingFeeReview.data)
+			} finally {
+				setIsLoading(prev => ({ ...prev, detailPayment: false }))
 			}
 		}
 		fetchData()
@@ -112,7 +117,7 @@ const HotelConfimationPage = props => {
 			}
 		>
 			<Layouts.DetailContainerLayout
-				title={"Detail Hotel Booking"}
+				title={"Detail Hotel"}
 				singularName={"Hotel"}
 				items={{ ...detailHotelBookingDataBinding }}
 				isLoading={isLoading.detailHotelBooking}
@@ -121,7 +126,7 @@ const HotelConfimationPage = props => {
 				<DetailHotelBooking {...{ data: { ...detailHotelBookingDataBinding } }} />
 			</Layouts.DetailContainerLayout>
 			<Layouts.DetailContainerLayout
-				title={"Detail Hotel Room Booking"}
+				title={"Detail Hotel Room"}
 				singularName={"Hotel"}
 				items={{ ...detailRoomBookingDataBinding }}
 				isLoading={isLoading.detailHotelRoomBooking}

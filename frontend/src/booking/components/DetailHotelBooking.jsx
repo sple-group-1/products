@@ -23,6 +23,13 @@ const DetailHotelBooking = ({ data }) => {
       item={data}
       itemsAttrs={[
         {
+          id: "image",
+          condition: "",
+          label: "Gambar",
+          featureName: "imageUrl",
+        }
+        ,
+        {
           id: "title",
           condition: "",
           label: "Title",
