@@ -10,11 +10,11 @@ const Hero = ({ banner }) => {
     >
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Selamat Datang</h1>
-          <p className="mb-5">Yuk cari tahu lebih lanjut mengenai kami!</p>
-          <Link to="/aboutus">
-            <button className="btn btn-primary">Tentang Kami</button>
+        <div className="max-w-lg">
+          <h1 className="mb-5 text-5xl font-bold">Booking Hotel Murah dan Mudah</h1>
+          <p className="mb-5">Yuk cari hotel di BoboGo!</p>
+          <Link to="/hotel/search">
+            <button className="btn btn-primary">Cari Hotel</button>
           </Link>
         </div>
       </div>
