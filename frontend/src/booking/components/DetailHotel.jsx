@@ -31,6 +31,7 @@ const DetailHotel = ({ data }) => {
 
   const confirmDeleteHotel = async () => {
     await deleteHotel({
+      id: data.id,
     });
     navigate('/hotel');
   };
@@ -102,7 +103,22 @@ const DetailHotel = ({ data }) => {
             title={"Delete Hotel Confirmation"}
             text={"Are you sure you want to delete this hotel?"}
           >
-            
+            <div className='flex flex-row justify-between gap-4'>
+              <Button
+                variant="tertiary"
+                className="grow"
+                onClick={() => setShowModal({ ...showModal, deleteHotel: false })}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="primary"
+                className="grow"
+                onClick={confirmDeleteHotel}
+              >
+                Delete Hotel
+              </Button>
+            </div>
           </Modal>
         ]
       }
