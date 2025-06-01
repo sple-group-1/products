@@ -3,13 +3,13 @@ import tokenManager from '@/commons/utils/token'
 import environment from '@/commons/utils/environment'
 
 
-const createBlog = (data = {}) => {
+const likeBlog = (data = {}) => {
 	let body = data;
 
 	const { getToken } = tokenManager();
 	const token = getToken();
 	
-	return axios.post(`${environment.rootApi}/call/blog/create`, body,
+	return axios.post(`${environment.rootApi}/call/blog/like`, body,
 	{
 		params: { token },
 		
@@ -19,4 +19,4 @@ const createBlog = (data = {}) => {
 		}
 	})} 
 
-export default createBlog
+export default likeBlog

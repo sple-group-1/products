@@ -29,7 +29,7 @@ const [packageData, setPackageData] = useState()
 useEffect(() => {
     const fetch = async () => {
 	  setIsLoading(prev => ({...prev, updatePackageForm: true}))
-		const { data: packageDataResponse } = await getPackageData({ eventId  })
+		const { data: packageDataResponse } = await getPackageData({ packageId  })
 
 	    setPackageData(packageDataResponse.data)
 

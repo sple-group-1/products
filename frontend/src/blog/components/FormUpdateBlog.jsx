@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -92,13 +92,14 @@ const FormUpdateBlog = ({
 		        name="content"
 		        control={control}
 		        render={({ field, fieldState }) => (
-				  <RichTextField
-		            label="Content"
-		            placeholder="Masukkan content"
-		            defaultValue={blogData.content}	            fieldState={fieldState}
-					{...field}
-					isRequired={false}
-		          />
+        <RichTextField
+          label="Content"
+          placeholder="Masukkan content"
+          defaultValue={blogData.content}
+          fieldState={fieldState}
+          {...field}
+          isRequired={false}
+        />
 		        )}
 		      />
 		  ,

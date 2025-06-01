@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -20,13 +20,13 @@ const blogRoutes = [
 ,
 { 
 	path: "/blog/add",
-	element: <RequireAuth permissionNeeded="CreateBlog" ><AddBlogPage/></RequireAuth>
+	element: <RequireAuth permissionNeeded="Create Blog" ><AddBlogPage/></RequireAuth>
 }
 
 	
 ,
 { 
-	path: "/blog/update",
+	path: "blog/update",
 	element: <RequireAuth permissionNeeded="UpdateBlog" ><UpdateBlogPage/></RequireAuth>
 }
 

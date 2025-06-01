@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -26,7 +26,7 @@ import {
   findAllowedPermission,
 } from "@/commons/constants/allowedPermission";
 import cleanFormData from "@/commons/utils/cleanFormData";
-import createBlog from '../services/createBlog'
+import saveBlog from '../services/saveBlog'
 
 import { notifyError, notifySuccess} from "@/commons/utils/toaster";
 import * as Layouts from "@/commons/layouts";
@@ -45,12 +45,12 @@ const FormAddBlog = ({
   
   const add = (data) => {
     const cleanData = cleanFormData(data)
-    createBlog({
+    saveBlog({
       ...cleanData,
     })
     .then(({ data: { data } }) => {
       navigate(`/blog`)
-  	notifySuccess(`Create Blog berhasil!`);
+  	notifySuccess(`Save Blog berhasil!`);
     })
     .catch((error) => {
       console.error(error);

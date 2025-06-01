@@ -43,6 +43,13 @@ export const settingsMenu = [
 export default menus;
 
 addMenu({
+	route: '/blog',
+    label: 'Blog',
+    permission: 'ReadBlog',
+	subMenus: []
+})
+
+addMenu({
 	route: '/order',
     label: 'Order',
     permission: '',

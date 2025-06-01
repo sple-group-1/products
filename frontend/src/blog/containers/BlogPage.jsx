@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -54,7 +54,7 @@ return (
 		buttons={
 			<>
 			<Layouts.ViewContainerButtonLayout>
-			  	{checkPermission("CreateBlog") &&  (
+			  	{checkPermission("Create Blog") &&  (
 			  	  <Link to={`/blog/add
 			  	  `}>
 			  	  	<Button className="p-2" variant="primary">

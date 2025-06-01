@@ -1,5 +1,5 @@
 /*
-	Generated on 01/06/2025 by UI Generator PRICES-IDE
+	Generated on 23/05/2025 by UI Generator PRICES-IDE
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
@@ -13,11 +13,11 @@ import { Button } from '@/commons/components';
 import * as Layouts from "@/commons/layouts";
 
 const BlogCard = ({ listBlogDataBinding,
-		 
-
+  
 	}) => {
   const { checkPermission } = useAuth();
-  
+  const {id} = useParams()
+
   return (
     <Layouts.ListComponentCardLayout
       items={[listBlogDataBinding]}
@@ -38,10 +38,18 @@ const BlogCard = ({ listBlogDataBinding,
   		  featureName: "createdAt",
             editable: false
           }
+  ,
+          {
+            id: "likeCount",
+            condition: "",
+            label: "Like",
+  		  featureName: "likeCount",
+            editable: false
+          }
   ]}
       itemsEvents={(blogItem) => [
         
-        <Link to={`/blog/${id}`}>
+        <Link to={`/blog/${blogItem.id}`}>
           <Button
             size="sm"
             variant=
