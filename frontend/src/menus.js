@@ -60,7 +60,7 @@ addSubMenu('Booking', {
 addMenu({
 	route: '/order',
     label: 'Order',
-    permission: '',
+    permission: 'ReadOrder',
 	subMenus: []
 })
 
