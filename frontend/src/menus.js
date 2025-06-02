@@ -42,12 +42,6 @@ export const settingsMenu = [
 
 export default menus;
 
-addMenu({
-	route: '/order',
-    label: 'Order',
-    permission: '',
-	subMenus: []
-})
 
 addMenu({
 	route: '#',
@@ -61,4 +55,18 @@ addSubMenu('Booking', {
 	label: 'Booking Hotel',
     permission: '',
 	
+})
+
+addMenu({
+	route: '/order',
+    label: 'Order',
+    permission: '',
+	subMenus: []
+})
+
+addMenu({
+	route: '/blog',
+    label: 'Blog',
+    permission: 'ReadBlog',
+	subMenus: []
 })
