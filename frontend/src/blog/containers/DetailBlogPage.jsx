@@ -33,7 +33,7 @@ useEffect(() => {
 			setIsLoading(prev => ({...prev, detailBlog: false}))
 		}
 	}
-	if (checkPermission("Read Blog")) { 
+	if (checkPermission("ReadBlog")) { 
 		fetchData()
 	}
 }, [])
@@ -60,7 +60,7 @@ return (
 			</>
 		}
 	>
-{ checkPermission("Read Blog") && ( 
+{ checkPermission("ReadBlog") && ( 
 <Layouts.DetailContainerLayout
 	title={"Detail Blog"}
 	singularName={"Blog"}

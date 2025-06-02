@@ -40,7 +40,7 @@ const [listBlogDataBinding, setListBlogDataBinding] = useState()
 				setIsLoading(prev => ({...prev, listRowBlog: false}))
 			}
 		}
-		if (checkPermission("Read Blog")) { 
+		if (checkPermission("ReadBlog")) { 
 			fetchData()
 		}
   	}, [])
@@ -69,7 +69,7 @@ return (
 			</>
 		}
 	>
-{ checkPermission("Read Blog") && ( 
+{ checkPermission("ReadBlog") && ( 
 <Layouts.ListContainerCardLayout
 	title={"ListRow Blog"}
 	singularName={"Blog"}

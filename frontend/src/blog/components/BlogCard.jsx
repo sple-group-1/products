@@ -13,11 +13,11 @@ import { Button } from '@/commons/components';
 import * as Layouts from "@/commons/layouts";
 
 const BlogCard = ({ listBlogDataBinding,
-		 
-
+  
 	}) => {
   const { checkPermission } = useAuth();
-  
+  const {id} = useParams()
+
   return (
     <Layouts.ListComponentCardLayout
       items={[listBlogDataBinding]}
@@ -30,10 +30,26 @@ const BlogCard = ({ listBlogDataBinding,
   		  featureName: "title",
             editable: false
           }
+  ,
+          {
+            id: "createdAt",
+            condition: "",
+            label: "Created At",
+  		  featureName: "createdAt",
+            editable: false
+          }
+  ,
+          {
+            id: "likeCount",
+            condition: "",
+            label: "Like",
+  		  featureName: "likeCount",
+            editable: false
+          }
   ]}
       itemsEvents={(blogItem) => [
         
-        <Link to={`/blog/${id}`}>
+        <Link to={`/blog/${blogItem.id}`}>
           <Button
             size="sm"
             variant=

@@ -6,6 +6,7 @@ import staticPageRoutes from "@/staticPage/routes";
 import homeRoutes from "@/home/routes";
 import orderRoutes from "@/order/routes";
 import bookingRoutes from "@/booking/routes";
+import blogRoutes from "@/blog/routes";
 
 const GlobalRoutes = () => {
   const router = useRoutes([
@@ -16,6 +17,7 @@ const GlobalRoutes = () => {
 	...homeRoutes, 
 	...orderRoutes, 
 	...bookingRoutes, 
+	...blogRoutes,
   ])
   return router
 }

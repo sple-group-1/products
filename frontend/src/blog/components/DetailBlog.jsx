@@ -9,6 +9,7 @@ import { useNavigate, Link } from "react-router";
 import { useAuth } from '@/commons/auth';
 import { Button, Detail, VisualizationAttr, Modal, Spinner } from '@/commons/components';
 
+import likeBlog from '../services/likeBlog';
 import deleteBlog from '../services/deleteBlog';
 
 import * as Layouts from "@/commons/layouts";
@@ -21,14 +22,23 @@ const DetailBlog = ({ data }) => {
     
     const updateBlog = async () => {
       navigate(
-        'blog/update?'
+        '/blog/update?'
         + `id=${data.id}`
         
       );
     };
     
+  	
+    const like = async () => {
+      await likeBlog({
+        id: data.id,
+      });
+  	  window.location.reload()
+
+    }
+    
   
-    const deleteBlog = async () => {
+    const handleDeleteBlog = async () => {
       await deleteBlog({
         id: data.id,
       });
@@ -59,6 +69,13 @@ const DetailBlog = ({ data }) => {
           label: "Content",
           featureName: "content",
         }
+        ,
+        {
+          id: "likeCount",
+          condition: "",
+          label: "Like",
+          featureName: "likeCount",
+        }
         
       ]}
       itemsEvents={[
@@ -79,6 +96,13 @@ const DetailBlog = ({ data }) => {
                 Update Blog
               </Button>
             )
+        ,
+            <Button
+          variant="secondary"
+          onClick={() => like()}
+        >
+          Like
+        </Button>
         
       ]}
       itemsModals={[
@@ -86,10 +110,10 @@ const DetailBlog = ({ data }) => {
            isShow={showModalDeleteBlogConfirmation}
            title={"Delete Blog Confirmation"}
         >
-           <Link to=''><Button variant="tertiary" onClick={() => setShowModalDeleteBlogConfirmation(false)}>Batal</Button></Link>
+           <Link to=''><Button variant="tertiary" className="w-full mb-2" onClick={() => setShowModalDeleteBlogConfirmation(false)}>Batal</Button></Link>
           <Button
             variant="danger"
-            onClick={() => deleteBlog()}
+            onClick={() => handleDeleteBlog()}
           >
             Delete Blog
           </Button>

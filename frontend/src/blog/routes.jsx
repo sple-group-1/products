@@ -3,8 +3,8 @@
 	https://amanah.cs.ui.ac.id/research/ifml-regen
 	version 3.9.0
 */
-import RequireAuth from "@/commons/auth/RequireAuth";
-import React from 'react';
+import RequireAuth from '@/commons/auth/RequireAuth'
+
 import BlogPage from './containers/BlogPage'
 import AddBlogPage from './containers/AddBlogPage'
 import DetailBlogPage from './containers/DetailBlogPage'
@@ -13,7 +13,7 @@ import UpdateBlogPage from './containers/UpdateBlogPage'
 const blogRoutes = [
 { 
 	path: "/blog",
-	element: <RequireAuth permissionNeeded="Read Blog" ><BlogPage/></RequireAuth>
+	element: <RequireAuth permissionNeeded="ReadBlog" ><BlogPage/></RequireAuth>
 }
 
 	
@@ -34,7 +34,7 @@ const blogRoutes = [
 ,
 { 
 	path: "/blog/:id",
-	element: <RequireAuth permissionNeeded="Read Blog" ><DetailBlogPage/></RequireAuth>
+	element: <RequireAuth permissionNeeded="ReadBlog" ><DetailBlogPage/></RequireAuth>
 }
 
 	

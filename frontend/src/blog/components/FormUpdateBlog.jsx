@@ -92,13 +92,14 @@ const FormUpdateBlog = ({
 		        name="content"
 		        control={control}
 		        render={({ field, fieldState }) => (
-				  <RichTextField
-		            label="Content"
-		            placeholder="Masukkan content"
-		            defaultValue={blogData.content}	            fieldState={fieldState}
-					{...field}
-					isRequired={false}
-		          />
+        <RichTextField
+          label="Content"
+          placeholder="Masukkan content"
+          defaultValue={blogData.content}
+          fieldState={fieldState}
+          {...field}
+          isRequired={false}
+        />
 		        )}
 		      />
 		  ,
